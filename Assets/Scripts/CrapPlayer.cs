@@ -8,7 +8,6 @@ public class CrapPlayer : MonoBehaviour
 
 	private Rigidbody _rb;
 	private float _speed =  10.0f;
-
 	private AnchorSingleton _Anchor;
 	private Vector3 _Aoffset;
 
