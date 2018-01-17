@@ -14,6 +14,8 @@ public class CrapCaste : MonoBehaviour
 	private Transform _me;
 	private Vector3 _fDist;
     private float _RotateSpeed = 1;
+    private float _camSpeed = 2.5f;
+    
     public float length;
     public Vector3 offset;
     //couldnt get to work with singlton so use pPoint instead
@@ -73,18 +75,26 @@ public class CrapCaste : MonoBehaviour
 
     void cameraRotation()
     {
-        float horizontal = Input.GetAxis("Mouse X") * _RotateSpeed;
+        float horizontal = Input.GetAxis("CamX") * _RotateSpeed;
+        float CamHorz = Input.GetAxis("JoyX") * _camSpeed;
         _me.Rotate(0, horizontal, 0);
+        _me.Rotate(0, CamHorz, 0);
 
-        float vertical = Input.GetAxis("Mouse Y") * _RotateSpeed;
-        if(InvertY == true)
+        float vertical = Input.GetAxis("CamY") * _RotateSpeed;
+        float CamVertz = Input.GetAxis("JoyY") * _camSpeed;
+
+        if (InvertY == true)
         {
            pPoint.Rotate(-vertical, 0, 0);
+            pPoint.Rotate(-CamVertz, 0, 0);
+
 
         }
         else
         {
-            pPoint.Rotate(vertical, 0, 0);
+            pPoint.Rotate(-vertical, 0, 0);
+            pPoint.Rotate(CamVertz, 0, 0);
+
         }
 
         //limit up and down camera rotate
