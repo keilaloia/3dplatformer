@@ -8,14 +8,20 @@ public class CrapCaste : MonoBehaviour
 	private Rigidbody _rb;
 	private RaycastHit _hit;
 	private CameraSingleTon _cams;
+    /// shits broken
     private AnchorSingleton _PivotPoint;
+    /// <summary>
 	private Transform _me;
 	private Vector3 _fDist;
     private float _RotateSpeed = 1;
     public float length;
     public Vector3 offset;
-    //couldnt get to work with singlton
+    //couldnt get to work with singlton so use pPoint instead
     public Transform pPoint;
+    public float maxViewAngle;
+    public float minViewAngle;
+
+    public bool InvertY;
 
 
     // Use this for initialization
@@ -42,6 +48,7 @@ public class CrapCaste : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _cams = CameraSingleTon.instance.GetComponent<CameraSingleTon>();
         _me = GetComponent<Transform>();
+        //////////////////do not use does not work for some reason below
         _PivotPoint = GetComponent<AnchorSingleton>();
     }
     void CalcfDist()
@@ -70,11 +77,29 @@ public class CrapCaste : MonoBehaviour
         _me.Rotate(0, horizontal, 0);
 
         float vertical = Input.GetAxis("Mouse Y") * _RotateSpeed;
-        pPoint.transform.Rotate(-vertical, 0, 0);
+        if(InvertY == true)
+        {
+           pPoint.Rotate(-vertical, 0, 0);
 
+        }
+        else
+        {
+            pPoint.Rotate(vertical, 0, 0);
+        }
+
+        //limit up and down camera rotate
+        if (pPoint.rotation.eulerAngles.x > minViewAngle && pPoint.rotation.eulerAngles.x < 180f)
+        {
+           pPoint.rotation = Quaternion.Euler(minViewAngle, 0, 0);
+        }
+
+        if (pPoint.rotation.eulerAngles.x > 180f && pPoint.rotation.eulerAngles.x < 360f + maxViewAngle)
+        {
+            pPoint.rotation = Quaternion.Euler(360f + maxViewAngle, 0, 0);
+        }
         //move camera based on the current rotation of the target & the original offset
         float desiredYAngle = _me.eulerAngles.y;
-        float desiredXAngle = pPoint.transform.eulerAngles.x;
+        float desiredXAngle = pPoint.eulerAngles.x;
         _cams.transform.rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
         _cams.transform.position = _me.position - (_cams.transform.rotation * offset);
 
