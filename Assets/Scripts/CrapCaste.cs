@@ -79,13 +79,17 @@ public class CrapCaste : MonoBehaviour
         float CamHorz = Input.GetAxis("JoyX") * _camSpeed;
         _me.Rotate(0, horizontal, 0);
         _me.Rotate(0, CamHorz, 0);
+        Debug.Log(CamHorz);
 
         float vertical = Input.GetAxis("CamY") * _RotateSpeed;
         float CamVertz = Input.GetAxis("JoyY") * _camSpeed;
 
+        Debug.Log(CamVertz);
+
+
         if (InvertY == true)
         {
-           pPoint.Rotate(-vertical, 0, 0);
+            pPoint.Rotate(-vertical, 0, 0);
             pPoint.Rotate(-CamVertz, 0, 0);
 
 
@@ -108,7 +112,7 @@ public class CrapCaste : MonoBehaviour
             pPoint.rotation = Quaternion.Euler(360f + maxViewAngle, 0, 0);
         }
         //move camera based on the current rotation of the target & the original offset
-        float desiredYAngle = _me.eulerAngles.y;
+        float desiredYAngle = pPoint.eulerAngles.y;
         float desiredXAngle = pPoint.eulerAngles.x;
         _cams.transform.rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
         _cams.transform.position = _me.position - (_cams.transform.rotation * offset);

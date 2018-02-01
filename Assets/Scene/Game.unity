@@ -456,8 +456,8 @@ MonoBehaviour:
   length: 5
   offset: {x: 0, y: 0, z: -5}
   pPoint: {fileID: 1324089549}
-  maxViewAngle: -55
-  minViewAngle: 45
+  maxViewAngle: -175
+  minViewAngle: 60
   InvertY: 0
 --- !u!23 &391493496
 MeshRenderer:
