@@ -14,7 +14,7 @@ public class CrapCaste : MonoBehaviour
 	private Transform _me;
 	private Vector3 _fDist;
     private float _RotateSpeed = 1;
-    private float _camSpeed = 2.5f;
+    private float _camSpeed = 2f;
     
     public float length;
     public Vector3 offset;
@@ -57,7 +57,7 @@ public class CrapCaste : MonoBehaviour
     {
         caste();
         _cams.transform.position = _fDist;
-        Debug.DrawLine(transform.position, transform.position + offset, Color.blue);
+        Debug.DrawLine(transform.position, transform.position - offset, Color.blue);
 
     }
     void caste()
@@ -112,7 +112,7 @@ public class CrapCaste : MonoBehaviour
             pPoint.rotation = Quaternion.Euler(360f + maxViewAngle, 0, 0);
         }
         //move camera based on the current rotation of the target & the original offset
-        float desiredYAngle = pPoint.eulerAngles.y;
+        float desiredYAngle = _me.eulerAngles.y;
         float desiredXAngle = pPoint.eulerAngles.x;
         _cams.transform.rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0);
         _cams.transform.position = _me.position - (_cams.transform.rotation * offset);
