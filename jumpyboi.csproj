@@ -303,11 +303,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CameraRadius.cs" />
     <Compile Include="Assets\Scripts\CrapCaste.cs" />
-    <Compile Include="Assets\Scripts\CrapPlayer.cs" />
+    <Compile Include="Assets\Scripts\CrapMovement.cs" />
     <Compile Include="Assets\Scripts\levelManager.cs" />
     <Compile Include="Assets\Scripts\LoadMenu.cs" />
+    <Compile Include="Assets\Scripts\MyMovement.cs" />
+    <Compile Include="Assets\Scripts\NotUsed\AnchorRadius.cs" />
+    <Compile Include="Assets\Scripts\NotUsed\CameraRadius.cs" />
+    <Compile Include="Assets\Scripts\NotUsed\CrapPlayer.cs" />
     <Compile Include="Assets\Scripts\SingleTon\AnchorSingleton.cs" />
     <Compile Include="Assets\Scripts\SingleTon\CameraSingleTon.cs" />
   </ItemGroup>

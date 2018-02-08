@@ -21,6 +21,7 @@ public class CameraSingleTon : MonoBehaviour {
     private float currentshakeDuration;
     public bool doShake;
 
+    private float rotateSpeed;
     Vector3 originalPos;
     //safety check
     void Awake()
@@ -69,8 +70,7 @@ public class CameraSingleTon : MonoBehaviour {
     void Update()
     {
         cameraShake();
-    }
-    
+    } 
     // Look into making a random direction vector property
     // Look into making a co-routine for shaking camera for a set amount of seconds
 }
