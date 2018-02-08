@@ -307,6 +307,7 @@
     <Compile Include="Assets\Scripts\CrapMovement.cs" />
     <Compile Include="Assets\Scripts\levelManager.cs" />
     <Compile Include="Assets\Scripts\LoadMenu.cs" />
+    <Compile Include="Assets\Scripts\MyMovement.cs" />
     <Compile Include="Assets\Scripts\NotUsed\AnchorRadius.cs" />
     <Compile Include="Assets\Scripts\NotUsed\CameraRadius.cs" />
     <Compile Include="Assets\Scripts\NotUsed\CrapPlayer.cs" />
