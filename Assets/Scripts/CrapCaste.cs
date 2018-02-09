@@ -15,8 +15,7 @@ public class CrapCaste : MonoBehaviour
 	private Vector3 _fDist;
     private float _RotateSpeed = .2f;
     private float _camSpeed = 2f;
-    
-    public float length;
+  
     public Vector3 offset;
     //fix your pivot point singleton  that way its not public and place below
 

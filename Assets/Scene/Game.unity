@@ -434,8 +434,8 @@ GameObject:
   - component: {fileID: 391493496}
   - component: {fileID: 391493495}
   - component: {fileID: 391493501}
-  - component: {fileID: 391493500}
   - component: {fileID: 391493502}
+  - component: {fileID: 391493500}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -449,12 +449,11 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391493494}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bf07384cb5439043a77ec7be6245f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 5
   offset: {x: 0, y: 0, z: -5}
   pPoint: {fileID: 1324089549}
   maxViewAngle: -55
@@ -534,15 +533,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391493494}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e23bfdbd2170f42b25a3fb3ee4f48e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b24bf511c7f38b48bd78515eaa8fc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1006529496}
+  MouseCamSpeed: 2
+  JoyCamSpeed: 2
+  maxViewAngle: -55
+  minViewAngle: 45
+  Offset: {x: 0, y: 0, z: -5}
   pPoint: {fileID: 1324089549}
-  CamPoint: {fileID: 611923629}
-  PlayerModel: {fileID: 914168066}
+  InvertY: 0
 --- !u!143 &391493501
 CharacterController:
   m_ObjectHideFlags: 0
@@ -574,11 +576,11 @@ MonoBehaviour:
   anim: {fileID: 1006529496}
   pPoint: {fileID: 1324089549}
   PlayerMesh: {fileID: 914168066}
-  speed: 5
+  speed: 10
   gravityScale: 5
-  jumpforce: 15
+  jumpforce: 25
   RotateSpeed: 20
-  CamRotateSpeed: 10
+  CamRotateSpeed: 4
 --- !u!1 &495212184
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,34 +726,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &611923628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 611923629}
-  m_Layer: 0
-  m_Name: CampPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &611923629
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 611923628}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1338665708}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &914168066 stripped
 GameObject:
@@ -1272,7 +1246,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1324089549}
-  - {fileID: 611923629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

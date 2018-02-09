@@ -13,9 +13,9 @@ public class MyMovement : MonoBehaviour {
     public GameObject PlayerMesh;
     public float speed;
     public float gravityScale;
-    public float jumpforce = 15f;
-    public float RotateSpeed = 20f;
-    public float CamRotateSpeed = 10f;
+    public float jumpforce;
+    public float RotateSpeed;
+    public float CamRotateSpeed;
 
 
 
