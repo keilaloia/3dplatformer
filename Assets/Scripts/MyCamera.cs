@@ -105,10 +105,10 @@ public class MyCamera : MonoBehaviour {
         {
             pPoint.rotation = Quaternion.Euler(minViewAngle, desiredYAngle, 0);
         }
-        if(pPoint.rotation.eulerAngles.x > 180f && pPoint.rotation.eulerAngles.x < 360f + maxViewAngle)
-        {
-            pPoint.rotation = Quaternion.Euler(360f + maxViewAngle, desiredYAngle, 0);
-        }
+        //if(pPoint.rotation.eulerAngles.x > 180f && pPoint.rotation.eulerAngles.x < 360f + maxViewAngle)
+        //{
+        //    pPoint.rotation = Quaternion.Euler(360f + maxViewAngle, desiredYAngle, 0);
+        //}
         _cams.transform.LookAt(_mTrans);
 
 
