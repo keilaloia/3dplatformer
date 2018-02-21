@@ -5,8 +5,8 @@ using UnityEngine;
 public class MyMovement : MonoBehaviour {
 
 
-    private CharacterController _pController;
-    private Vector3 _mDirection = Vector3.zero;
+    public CharacterController _pController;
+    public Vector3 _mDirection = Vector3.zero;
     
     public Animator anim;
     public Transform pPoint;
