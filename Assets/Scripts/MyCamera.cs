@@ -80,7 +80,7 @@ public class MyCamera : MonoBehaviour {
             pPoint.Rotate(-mouseVertz, 0, 0);
             pPoint.Rotate(-joyVertz, 0, 0);
 
-        }
+        } 
         else
         {
 
