@@ -62,31 +62,31 @@ public class MyCamera : MonoBehaviour {
         pPoint.transform.position = _mTrans.position;
         //possible different x and y rotation speeds play with it first
 
-        //Mouse
-        float mouseHorz = Input.GetAxis("CamX") * MouseCamSpeed;
-        float mouseVertz = Input.GetAxis("CamY") * MouseCamSpeed;
+        ////Mouse
+        //float mouseHorz = Input.GetAxis("CamX") * MouseCamSpeed;
+        //float mouseVertz = Input.GetAxis("CamY") * MouseCamSpeed;
 
-        //Joy Stick
-        float joyHorz = Input.GetAxis("JoyX") * JoyCamSpeed;
-        float joyVertz = Input.GetAxis("JoyY") * JoyCamSpeed;
+        ////Joy Stick
+        //float joyHorz = Input.GetAxis("JoyX") * JoyCamSpeed;
+        //float joyVertz = Input.GetAxis("JoyY") * JoyCamSpeed;
 
-        //X Rotation
-        pPoint.Rotate(0, -mouseHorz, 0);
-        pPoint.Rotate(0, -joyHorz, 0);
+        ////X Rotation
+        //pPoint.Rotate(0, -mouseHorz, 0);
+        //pPoint.Rotate(0, -joyHorz, 0);
 
-        //Y Rotation
-        if(InvertY == true)
-        {
-            pPoint.Rotate(-mouseVertz, 0, 0);
-            pPoint.Rotate(-joyVertz, 0, 0);
+        ////Y Rotation
+        //if(InvertY == true)
+        //{
+        //    pPoint.Rotate(-mouseVertz, 0, 0);
+        //    pPoint.Rotate(-joyVertz, 0, 0);
 
-        } 
-        else
-        {
+        //} 
+        //else
+        //{
 
-            pPoint.Rotate(mouseVertz, 0, 0);
-            pPoint.Rotate(joyVertz, 0, 0);
-        }
+        //    pPoint.Rotate(mouseVertz, 0, 0);
+        //    pPoint.Rotate(joyVertz, 0, 0);
+        //}
 
         //making all the shit above work :D
         //move camera based on the current rotation of myplayer transform & the original offset

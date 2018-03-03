@@ -430,12 +430,12 @@ GameObject:
   m_Component:
   - component: {fileID: 391493499}
   - component: {fileID: 391493498}
-  - component: {fileID: 391493497}
   - component: {fileID: 391493496}
-  - component: {fileID: 391493495}
   - component: {fileID: 391493501}
-  - component: {fileID: 391493502}
   - component: {fileID: 391493500}
+  - component: {fileID: 391493502}
+  - component: {fileID: 391493497}
+  - component: {fileID: 391493495}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -449,16 +449,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391493494}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bf07384cb5439043a77ec7be6245f0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a41c8268f4809a46b3bd504355df389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: -5}
-  pPoint: {fileID: 1324089549}
-  maxViewAngle: -55
-  minViewAngle: 45
-  InvertY: 0
+  MaxwSpeed: 12
+  ZerotoMax: 0.5
+  MaxtoZero: 0.5
+  gravityScale: 0
+  JumpHeight: 100
+  turnAnglePerSec: 270
+  PlayerMesh: {fileID: 914168066}
 --- !u!23 &391493496
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -501,7 +503,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 391493494}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -533,7 +535,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391493494}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b24bf511c7f38b48bd78515eaa8fc19, type: 3}
   m_Name: 
@@ -553,7 +555,7 @@ CharacterController:
   m_GameObject: {fileID: 391493494}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
@@ -562,25 +564,21 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &391493502
-MonoBehaviour:
+--- !u!54 &391493502
+Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391493494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8293e01d2cd64a44b8e20e02a103b515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1006529496}
-  pPoint: {fileID: 1324089549}
-  PlayerMesh: {fileID: 914168066}
-  speed: 10
-  gravityScale: 5
-  jumpforce: 25
-  RotateSpeed: 20
-  CamRotateSpeed: 4
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &495212184
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +686,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 539978164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -735,11 +733,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
   m_PrefabInternal: {fileID: 1275343077}
---- !u!95 &1006529496 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: 77f1d0f11f400824c92723beb421bcbf,
-    type: 3}
-  m_PrefabInternal: {fileID: 1275343077}
 --- !u!1001 &1275343077
 Prefab:
   m_ObjectHideFlags: 0
@@ -765,7 +758,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
       propertyPath: m_LocalRotation.z
@@ -773,7 +766,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
       propertyPath: m_RootOrder
@@ -793,7 +786,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 77f1d0f11f400824c92723beb421bcbf, type: 3}
       propertyPath: m_Controller
