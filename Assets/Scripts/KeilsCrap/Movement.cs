@@ -20,8 +20,7 @@ public class Movement : MonoBehaviour
     private float AccelRatePerSec;
     private float decelRatePerSec;
     private float fVelocity;
-    private float mag;
-    private float currentTurn;
+    private Vector3 mag;
     private CapsuleCollider Bound;
     //private Quaternion CurrentRotation;
     //private Quaternion ProspectRotation;
@@ -57,33 +56,33 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         float V = Input.GetAxis("LeftJoyY");
-        float H = Input.GetAxis("RightJoyX");
+        float H = Input.GetAxis("LeftJoyX");
 
-        mag = new Vector2(V, H).magnitude;
-
-        Vector3 wishMove = new Vector3(H, 0.0f, V);
-
-        //RB.rotation = CurrentRotation;
-
-        ////transform.rotation = Quaternion.Euler(0f, mag, 0);
-        //Quaternion newRotation = Quaternion.LookRotation(transform.forward * mag, transform.up);
-
-        //PlayerMesh.transform.rotation = Quaternion.Slerp(PlayerMesh.transform.rotation, newRotation, turnAnglePerSec * Time.deltaTime);
-
-        // rotate towards the direction we're trying to move in
-        transform.forward = Vector3.RotateTowards(transform.forward,
-                                                  wishMove.normalized,
-                                                  Mathf.Deg2Rad * turnAnglePerSec * Time.deltaTime,
-                                                  0.0f);
-
-
-        //transform.Rotate(0, fVelocity * mag * turnAnglePerSec * Time.deltaTime, 0);
-        MoveFowardAccel(V);
-        //currentTurn = turnAnglePerSec * Time.deltaTime * mag;
-       
-       // RB.rotation = Quaternion.Euler(RB.rotation.eulerAngles + new Vector3(0, currentTurn, 0));
-        Jumpstuff(Input.GetButtonDown("ControllerJump"));
+        mag = new Vector3( H,0.0f, V);
         Debug.Log(mag);
+
+
+
+        //// rotate towards the direction we're trying to move in
+        //if (mag.magnitude != 0.0f)
+        //{
+        //    transform.forward = Vector3.RotateTowards(transform.forward,
+        //                                          mag,
+        //                                          Mathf.Deg2Rad * turnAnglePerSec * Time.deltaTime,
+
+        //                                          0.0f);
+
+        //}
+
+        //Vector3 finalPosition = RB.position + (transform.forward * mag.magnitude * 10 * Time.deltaTime);
+        //RB.MovePosition(finalPosition);
+
+        MoveFowardAccel(V);
+
+        //if()
+      
+        Jumpstuff(Input.GetButtonDown("ControllerJump"));
+        
 
       
 
@@ -130,5 +129,18 @@ public class Movement : MonoBehaviour
     //    float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
     //    transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     //}
+
+    void Turning(float vInput, float hInput, Vector3 Axis)
+    {
+        Vector3 currentForward;
+        currentForward = transform.forward * vInput;
+
+        //Axis = new Vector3(hInput, 0, currentForward);
+        
+        
+
+        
+
+    }
 
 }
