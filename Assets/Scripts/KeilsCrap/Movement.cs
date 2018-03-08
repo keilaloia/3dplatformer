@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     //private Quaternion CurrentRotation;
     //private Quaternion ProspectRotation;
 
-
+    public float Rotation_Friction;
 
     private Vector3 prevDir;
     private Vector3 curDir;
@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
         float V = Input.GetAxis("LeftJoyY");
         float H = Input.GetAxis("LeftJoyX");
 
-        mag = new Vector3( H,0.0f, V);
+        mDir = new Vector3( H,0.0f, V);
         Debug.Log(mag);
 
 
@@ -77,6 +77,7 @@ public class Movement : MonoBehaviour
         //Vector3 finalPosition = RB.position + (transform.forward * mag.magnitude * 10 * Time.deltaTime);
         //RB.MovePosition(finalPosition);
 
+        Turning(mDir.normalized);
         MoveFowardAccel(V);
 
         //if()
@@ -130,16 +131,18 @@ public class Movement : MonoBehaviour
     //    transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     //}
 
-    void Turning(float vInput, float hInput, Vector3 Axis)
+    void Turning(Vector3 Dir)
     {
-        Vector3 currentForward;
-        currentForward = transform.forward * vInput;
 
-        //Axis = new Vector3(hInput, 0, currentForward);
-        
-        
+        //Resulting_Value_from_Input += Input.GetAxis("LeftJoyX") * Rotation_Speed * Rotation_Friction;
+        //Quaternion_Rotate_From = transform.rotation;
+        //Quaternion_Rotate_To = Quaternion.Euler(0, Resulting_Value_from_Input, 0);
 
-        
+        //transform.rotation = Quaternion.Lerp(Quaternion_Rotate_From, Quaternion_Rotate_To, Time.deltaTime * Rotation_Smoothness);
+
+        transform.forward = Vector3.RotateTowards(transform.forward, Dir, turnAnglePerSec * Time.deltaTime * Rotation_Friction, 0.0f);
+       
+
 
     }
 
