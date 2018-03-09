@@ -54,7 +54,8 @@ public class MyMovement : MonoBehaviour {
             _mDirection.y = 0f;
             if (Input.GetButtonDown("Jump"))
             {
-                _mDirection.y = jumpforce;
+                _mDirection.y = Mathf.Sqrt(-2.0f * Physics.gravity.y * jumpforce);
+
             }
         }
 
@@ -64,7 +65,7 @@ public class MyMovement : MonoBehaviour {
 
 
     }
-
+      
     void RotateMesh()
     {
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
