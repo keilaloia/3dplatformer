@@ -11,8 +11,6 @@ public class Movement : MonoBehaviour
     public float MaxwSpeed;
     public float ZerotoMax;
     public float MaxtoZero;
-    public float gFallmuliplier;
-    public float lowJumpMultiplier;
     public float JumpHeight;
     public float turnAnglePerSec;
     public float Rotation_Friction;
@@ -26,7 +24,6 @@ public class Movement : MonoBehaviour
     private float decelRatePerSec;
     private float fVelocity;
     private CapsuleCollider Bound;
-    private float currentmass;
 
 
     public bool isGrounded
@@ -42,6 +39,7 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         RB = GetComponent<Rigidbody>();
+        //make constrain rb rotations on play
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         Bound = GetComponent<CapsuleCollider>();
 
@@ -49,7 +47,7 @@ public class Movement : MonoBehaviour
         AccelRatePerSec = MaxwSpeed / ZerotoMax;
         decelRatePerSec = -MaxwSpeed / MaxtoZero;
         fVelocity = 0f;
-        currentmass = RB.mass;
+        
     }
 
     void FixedUpdate()
@@ -58,20 +56,18 @@ public class Movement : MonoBehaviour
         //Get Main camera in Use.
         Camera cam = Camera.main;
 
-
+        //grab controller input and add to move direction 
         float V = Input.GetAxis("LeftJoyY");
         float H = Input.GetAxis("LeftJoyX");
-
-       
-        mDir = ((cam.transform.right * H) + (cam.transform.forward * V));
+        mDir = (cam.transform.right * H)+ (cam.transform.forward * V);
         
-
-        Turning(mDir.normalized);
+        //main methods making game work
+        Turning(mDir.normalized);  
         MoveFowardAccel(mDir.sqrMagnitude);
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
 
 
-        
+        //set up animations
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetFloat("Speed", mDir.magnitude);
     }
@@ -80,6 +76,7 @@ public class Movement : MonoBehaviour
     {
         if(ForwardInput != 0)
         {
+            //grab the forward velocity and accelerate it while grabbing the min value before max walk speed to clamp
             fVelocity += AccelRatePerSec * Time.deltaTime;
             fVelocity = Mathf.Min(fVelocity, MaxwSpeed);
             RB.velocity = transform.forward * fVelocity;
@@ -87,6 +84,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            //deccel and grab the max velocity making sure not to go negative
             fVelocity = Mathf.Max(fVelocity, 0);
             fVelocity += decelRatePerSec * Time.deltaTime;
             RB.velocity = transform.forward * fVelocity;
@@ -95,6 +93,7 @@ public class Movement : MonoBehaviour
 
     }
 
+    //absolute shit jump =D
     void Jumpstuff(bool bJump)
     {
         if (bJump&& isGrounded)
@@ -112,7 +111,10 @@ public class Movement : MonoBehaviour
 
     void Turning(Vector3 Dir)
     {
+        //remove the y to allow for only horizontal plane of movement DO NOT REMOVE CODE!!!!!!!!!!!
+        Dir.y -= Dir.y;
 
+        //whats controlling the character turns. keep Rotation_Friction to 1 unless you fully understand it ask keil for details. basically variable to slow down the turns
         transform.forward = Vector3.RotateTowards(transform.forward, Dir, turnAnglePerSec * Time.deltaTime * Rotation_Friction, 0.0f);
        
 
