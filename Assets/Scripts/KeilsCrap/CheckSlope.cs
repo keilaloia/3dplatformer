@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraCrap : MonoBehaviour {
+public class CheckSlope : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

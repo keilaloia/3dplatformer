@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-
-[RequireComponent(typeof(CinemachineFreeLook))]
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
@@ -12,13 +11,13 @@ public class Movement : MonoBehaviour
     public float MaxwSpeed;
     public float ZerotoMax;
     public float MaxtoZero;
-    public float gravityScale;
+    public float gFallmuliplier;
+    public float lowJumpMultiplier;
     public float JumpHeight;
     public float turnAnglePerSec;
     public float Rotation_Friction;
     public GameObject PlayerMesh;
-   // public CinemachineFreeLook followCam;
-   // public Camera main;
+    public Animator anim;
 
 
     private Rigidbody RB;
@@ -27,7 +26,7 @@ public class Movement : MonoBehaviour
     private float decelRatePerSec;
     private float fVelocity;
     private CapsuleCollider Bound;
-
+    private float currentmass;
 
 
     public bool isGrounded
@@ -45,13 +44,12 @@ public class Movement : MonoBehaviour
         RB = GetComponent<Rigidbody>();
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         Bound = GetComponent<CapsuleCollider>();
-        //followCam = GetComponent<CinemachineFreeLook>();
 
         //acceleration equations
         AccelRatePerSec = MaxwSpeed / ZerotoMax;
         decelRatePerSec = -MaxwSpeed / MaxtoZero;
         fVelocity = 0f;
-       
+        currentmass = RB.mass;
     }
 
     void FixedUpdate()
@@ -64,14 +62,18 @@ public class Movement : MonoBehaviour
         float V = Input.GetAxis("LeftJoyY");
         float H = Input.GetAxis("LeftJoyX");
 
-        //mDir = new Vector3( H,0.0f, V);
+       
         mDir = ((cam.transform.right * H) + (cam.transform.forward * V));
-        mDir.y = 0.0f;
+        
 
         Turning(mDir.normalized);
         MoveFowardAccel(mDir.sqrMagnitude);
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
-      
+
+
+        
+        anim.SetBool("IsGrounded", isGrounded);
+        anim.SetFloat("Speed", mDir.magnitude);
     }
 
     void MoveFowardAccel(float ForwardInput)
@@ -93,22 +95,26 @@ public class Movement : MonoBehaviour
 
     }
 
-    void Jumpstuff(bool jump)
+    void Jumpstuff(bool bJump)
     {
-        if(jump && isGrounded)
+        if (bJump&& isGrounded)
         {
-            RB.velocity = new Vector3 (RB.velocity.x, (Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight)),RB.velocity.z);
-            Debug.Log("I jumped");
-
+            RB.velocity = new Vector3(RB.velocity.x, JumpHeight, RB.velocity.y);
+            Debug.Log("jumpcalled");
+        }
+        else if (!isGrounded)
+        {
+            RB.AddForce(Physics.gravity * RB.mass * 10f, ForceMode.Force);
+            Debug.Log("being called");
         }
 
-
     }
- 
+
     void Turning(Vector3 Dir)
     {
 
         transform.forward = Vector3.RotateTowards(transform.forward, Dir, turnAnglePerSec * Time.deltaTime * Rotation_Friction, 0.0f);
+       
 
     }
 
