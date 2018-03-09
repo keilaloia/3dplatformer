@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         RB = GetComponent<Rigidbody>();
-        RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         Bound = GetComponent<CapsuleCollider>();
 
         //acceleration equations
