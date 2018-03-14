@@ -6,21 +6,33 @@ public class Mother : MonoBehaviour {
 
     
     public FloorPad[] GoodBox;
+    public ResetPad[] RPad;
     public bool[] IsGreen;
     public Material[] material;
     public Renderer[] rend;
-    public FloorPad floor;
     public GameObject Nice;
+    public GameObject[] remove;
 
     public bool IsFinished;
 
-
+    
 
     void Start ()
     {
 
 	}
 
+    void DoOver()
+    {
+        rend[0].sharedMaterial = material[0];
+        IsGreen[0] = false;
+        DestroyObject(remove[0]);
+        ////////////////////////////////
+        rend[1].sharedMaterial = material[0];
+        IsGreen[1] = false;
+        DestroyObject(remove[1]);
+        ////////////////////////////////
+    }
 
     void OnSwitch()
     {
@@ -32,20 +44,22 @@ public class Mother : MonoBehaviour {
     {
         if (GoodBox[0].IsGreen == true && GoodBox[0].IsBoxGood == true)
         {
+            rend[0].sharedMaterial = material[1];
             IsGreen[0] = true;
         }
-        if (GoodBox[0].IsGreen == true)
-        {
-            rend[0].sharedMaterial = material[1];
-        }
+
         if (GoodBox[1].IsGreen == true && GoodBox[1].IsBoxGood == true)
         {
+            rend[1].sharedMaterial = material[1];
             IsGreen[1] = true;
         }
-        if (GoodBox[1].IsGreen == true)
+
+
+        if (RPad[0].Again == true)
         {
-            rend[1].sharedMaterial = material[1];
+            DoOver();
         }
+
         if (IsGreen[0] && IsGreen[1] == true)
         {
             IsFinished = true;
