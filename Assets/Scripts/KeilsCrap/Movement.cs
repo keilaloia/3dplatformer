@@ -66,7 +66,6 @@ public class Movement : MonoBehaviour
         MoveFowardAccel(mDir.sqrMagnitude);
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
 
-
         //set up animations
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetFloat("Speed", mDir.magnitude);
