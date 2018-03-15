@@ -11,9 +11,9 @@ public class FloorPad : MonoBehaviour  {
     
     void Start ()
     {
-        mother.rend[0] = GetComponent<Renderer>();
-        mother.rend[0].enabled = true;
-        mother.rend[0].sharedMaterial = mother.material[0];
+        //mother.rend[0] = GetComponent<Renderer>();
+        //mother.rend[0].enabled = true;
+        //mother.rend[0].sharedMaterial = mother.material[0];
 	}
 
 
