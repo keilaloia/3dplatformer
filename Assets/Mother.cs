@@ -55,10 +55,10 @@ public class Mother : MonoBehaviour {
         }
 
 
-        if (RPad[0].Again == true)
-        {
-            DoOver();
-        }
+        //if (RPad[0].Again == true)
+        //{
+        //    DoOver();
+        //}
 
         if (IsGreen[0] && IsGreen[1] == true)
         {

@@ -40,7 +40,7 @@ public class MyMovement : MonoBehaviour {
         RotateMesh();
 
         float yStore = _mDirection.y;
-        _mDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+        _mDirection = (transform.forward * Input.GetAxis("LeftJoyY")) + (transform.right * Input.GetAxis("LeftJoyX"));
         _mDirection = _mDirection.normalized * -speed;
         //store the y of movedirection not currently used
         _mDirection.y = yStore;
@@ -52,7 +52,7 @@ public class MyMovement : MonoBehaviour {
         if (_pController.isGrounded)
         {
             _mDirection.y = 0f;
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("ControllerJump"))
             {
                 _mDirection.y = Mathf.Sqrt(-2.0f * Physics.gravity.y * jumpforce);
 
@@ -68,21 +68,21 @@ public class MyMovement : MonoBehaviour {
       
     void RotateMesh()
     {
-        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if(Input.GetAxis("LeftJoyX") != 0 || Input.GetAxis("LeftJoyY") != 0)
         {
             transform.rotation = Quaternion.Euler(0f, pPoint.rotation.eulerAngles.y, 0);
             Quaternion newRotation = Quaternion.LookRotation(new Vector3(_mDirection.x, 0, _mDirection.z));
 
             PlayerMesh.transform.rotation = Quaternion.Slerp(PlayerMesh.transform.rotation, newRotation, RotateSpeed * Time.deltaTime);
 
-            float MouseCameraHorz = Input.GetAxis("CamX") * CamRotateSpeed;
-            float JoyStickHorz = Input.GetAxis("JoyX") * CamRotateSpeed;
+            //float MouseCameraHorz = Input.GetAxis("CamX") * CamRotateSpeed;
+            float JoyStickHorz = Input.GetAxis("RightJoyX") * CamRotateSpeed;
 
-            pPoint.Rotate(0, MouseCameraHorz, 0);
+           // pPoint.Rotate(0, MouseCameraHorz, 0);
             pPoint.Rotate(0, JoyStickHorz, 0);
         }
 
         anim.SetBool("IsGrounded", _pController.isGrounded);
-        anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+        anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("LeftJoyY")) + Mathf.Abs(Input.GetAxis("LeftJoyX"))));
     }
 }

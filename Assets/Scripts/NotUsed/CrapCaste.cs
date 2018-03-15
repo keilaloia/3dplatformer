@@ -85,14 +85,14 @@ public class CrapCaste : MonoBehaviour
     {
         pPoint.transform.position = _me.transform.position;
 
-        float horizontal = Input.GetAxis("CamX") * _RotateSpeed;
-        float CamHorz = Input.GetAxis("JoyX") * _camSpeed;
-        pPoint.Rotate(0, horizontal, 0);
+        //float horizontal = Input.GetAxis("CamX") * _RotateSpeed;
+        float CamHorz = Input.GetAxis("RightJoyX") * _camSpeed;
+        //pPoint.Rotate(0, horizontal, 0);
         pPoint.Rotate(0, CamHorz, 0);
         Debug.Log(CamHorz);
 
-        float vertical = Input.GetAxis("CamY") * _RotateSpeed;
-        float CamVertz = Input.GetAxis("JoyY") * _camSpeed;
+       // float vertical = Input.GetAxis("CamY") * _RotateSpeed;
+        float CamVertz = Input.GetAxis("RightJoyY") * _camSpeed;
 
         Debug.Log(CamVertz);
 
@@ -101,14 +101,14 @@ public class CrapCaste : MonoBehaviour
 
         if (InvertY == true)
         {
-            pPoint.Rotate(-vertical, 0, 0);
+           // pPoint.Rotate(-vertical, 0, 0);
             pPoint.Rotate(-CamVertz, 0, 0);
 
 
         }
         else
         {
-            pPoint.Rotate(vertical, 0, 0);
+            //pPoint.Rotate(vertical, 0, 0);
             pPoint.Rotate(CamVertz, 0, 0);
 
         }
