@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Keil.unity
+- path: Assets/Scene/Joosh.unity
   isLoaded: 1
   isActive: 1
