@@ -6,6 +6,7 @@ using Cinemachine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CheckSlope))]
 public class Movement : MonoBehaviour
 {
     public float MaxwSpeed;
@@ -17,9 +18,12 @@ public class Movement : MonoBehaviour
     public GameObject PlayerMesh;
     public Animator anim;
 
-
+    
     private Rigidbody RB;
-    private Vector3 mDir;
+    public Vector3 mDir;
+    private Vector3 move;
+    private float V;
+    private float H;
     private float AccelRatePerSec;
     private float decelRatePerSec;
     private float fVelocity;
@@ -57,14 +61,17 @@ public class Movement : MonoBehaviour
         Camera cam = Camera.main;
 
         //grab controller input and add to move direction 
-        float V = Input.GetAxis("LeftJoyY");
-        float H = Input.GetAxis("LeftJoyX");
-        mDir = (cam.transform.right * H)+ (cam.transform.forward * V);
-        
+        V = Input.GetAxis("LeftJoyY");
+        H = Input.GetAxis("LeftJoyX");
+        mDir = (cam.transform.right * H) + (cam.transform.forward * V);
+       
         //main methods making game work
         Turning(mDir.normalized);  
-        MoveFowardAccel(mDir.sqrMagnitude);
+        MoveFowardAccel(mDir.magnitude);
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
+
+
+       
 
         //set up animations
         anim.SetBool("IsGrounded", isGrounded);
@@ -73,12 +80,17 @@ public class Movement : MonoBehaviour
 
     void MoveFowardAccel(float ForwardInput)
     {
-        if(ForwardInput != 0)
+        move = transform.forward * fVelocity;
+        move.y = RB.velocity.y;
+
+        if (ForwardInput != 0)
         {
             //grab the forward velocity and accelerate it while grabbing the min value before max walk speed to clamp
             fVelocity += AccelRatePerSec * Time.deltaTime;
-            fVelocity = Mathf.Min(fVelocity, MaxwSpeed);
-            RB.velocity = transform.forward * fVelocity;
+            fVelocity = Mathf.Min(fVelocity, MaxwSpeed);  
+            RB.velocity = move;
+
+          
           
         }
         else
@@ -86,8 +98,8 @@ public class Movement : MonoBehaviour
             //deccel and grab the max velocity making sure not to go negative
             fVelocity = Mathf.Max(fVelocity, 0);
             fVelocity += decelRatePerSec * Time.deltaTime;
-            RB.velocity = transform.forward * fVelocity;
-          
+            RB.velocity = move;
+
         }
 
     }
@@ -95,14 +107,15 @@ public class Movement : MonoBehaviour
     //absolute shit jump =D
     void Jumpstuff(bool bJump)
     {
-        if (bJump&& isGrounded)
+        if (bJump && isGrounded)
         {
-            RB.velocity = new Vector3(RB.velocity.x, JumpHeight, RB.velocity.y);
+            RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
             Debug.Log("jumpcalled");
         }
+        //only added for physics jump delete if necesarry, to improve add bool for bjump check
         else if (!isGrounded)
         {
-            RB.AddForce(Physics.gravity * RB.mass * 10f, ForceMode.Force);
+            RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
             Debug.Log("being called");
         }
 
