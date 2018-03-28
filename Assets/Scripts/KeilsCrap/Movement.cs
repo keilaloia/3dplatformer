@@ -17,10 +17,10 @@ public class Movement : MonoBehaviour
     public float Rotation_Friction;
     public GameObject PlayerMesh;
     public Animator anim;
+    private Vector3 mDir;
 
-    
+
     private Rigidbody RB;
-    public Vector3 mDir;
     private Vector3 move;
     private float V;
     private float H;
@@ -28,7 +28,15 @@ public class Movement : MonoBehaviour
     private float decelRatePerSec;
     private float fVelocity;
     private CapsuleCollider Bound;
+    private Camera cam;
 
+    public Vector3 HeightOffset;
+    public Vector3 FeetOffset;
+    public float distance;
+
+    private bool Climbable;
+    private float Angle;
+    private Vector3 Direction;
 
     public bool isGrounded
     {
@@ -42,6 +50,10 @@ public class Movement : MonoBehaviour
     }
     void Awake()
     {
+
+        //Get Main camera in Use.
+        cam = Camera.main;
+
         RB = GetComponent<Rigidbody>();
         //make constrain rb rotations on play
         RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
@@ -51,27 +63,30 @@ public class Movement : MonoBehaviour
         AccelRatePerSec = MaxwSpeed / ZerotoMax;
         decelRatePerSec = -MaxwSpeed / MaxtoZero;
         fVelocity = 0f;
+
         
     }
 
     void FixedUpdate()
     {
+        Direction = cam.transform.forward;
 
-        //Get Main camera in Use.
-        Camera cam = Camera.main;
+
 
         //grab controller input and add to move direction 
         V = Input.GetAxis("LeftJoyY");
         H = Input.GetAxis("LeftJoyX");
-        mDir = (cam.transform.right * H) + (cam.transform.forward * V);
-       
+        mDir = (cam.transform.right * H) + (Direction * V);
+        isclimable();
+
         //main methods making game work
         Turning(mDir.normalized);  
         MoveFowardAccel(mDir.magnitude);
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
 
 
-       
+
+
 
         //set up animations
         anim.SetBool("IsGrounded", isGrounded);
@@ -90,8 +105,15 @@ public class Movement : MonoBehaviour
             fVelocity = Mathf.Min(fVelocity, MaxwSpeed);  
             RB.velocity = move;
 
-          
-          
+            if(Climbable)
+            {
+                transform.position += (Vector3.up * fVelocity) * Time.deltaTime;
+               // transform.position += (Vector3.right * fVelocity) * Time.deltaTime;
+
+            }
+
+
+
         }
         else
         {
@@ -131,6 +153,42 @@ public class Movement : MonoBehaviour
        
 
     }
+
+    void isclimable()
+    {
+        RaycastHit Rhit;
+        RaycastHit Fhit;
+
+        Ray rDir = new Ray(transform.position + HeightOffset, transform.forward);
+        Ray fDir = new Ray(transform.position + FeetOffset, transform.forward);
+
+
+        Debug.DrawRay(transform.position + HeightOffset, transform.forward * distance, Color.black);
+        Debug.DrawRay(transform.position + FeetOffset, transform.forward * distance, Color.magenta);
+
+        Physics.Raycast(rDir, out Rhit, distance);
+
+        if (Physics.Raycast(fDir, out Fhit, distance))
+        {
+            Angle = Vector3.Angle(Fhit.normal, transform.forward);
+            //Angle = Vector3.Angle(Rhit.point, Fhit.point);
+            if (Angle > 150f && Fhit.collider.gameObject.layer == 8)
+            {
+                Climbable = true;
+                
+
+            }
+            else
+            {
+                Climbable = false;
+            }
+
+            Debug.Log(Climbable);
+           
+        }
+
+    }
+
 
 
 

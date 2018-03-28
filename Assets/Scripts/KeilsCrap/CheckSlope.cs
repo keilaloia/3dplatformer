@@ -16,18 +16,15 @@ public class CheckSlope : MonoBehaviour {
     public bool showDebug = false;
     public Vector3 rayOriginOffset1 = new Vector3(-0.2f, 0f, 0.16f);
     public Vector3 rayOriginOffset2 = new Vector3(0.2f, 0f, -0.16f);
-    public float distance;
     public float SphereOffSet;
     public float SphereRadius;
     public float SphereCastDistance;
-    public Vector3 HeightOffset;
-    public Vector3 FeetOffset;
-    public LayerMask Emask;
  
 
 
 
-    private float Angle;
+    public LayerMask Emask;
+
     private float raycastLength = 0.75f;
     private Movement MoveScript;
     
@@ -50,7 +47,7 @@ public class CheckSlope : MonoBehaviour {
        
         sphereSP = new Vector3(transform.position.x, transform.position.y - SphereOffSet, transform.position.z);
         SphereCast(sphereSP);
-        isclimable();
+        //CanClimb(Climbable);
 
         
     }
@@ -122,32 +119,10 @@ public class CheckSlope : MonoBehaviour {
      
     }
 
-    void isclimable()
-    {
-        RaycastHit Rhit;
-        RaycastHit Fhit;
+   
 
-        Ray rDir = new Ray(transform.position + HeightOffset, transform.forward);
-        Ray fDir = new Ray(transform.position + FeetOffset, transform.forward);
-
-
-        Debug.DrawRay(transform.position + HeightOffset, transform.forward * distance, Color.black);
-        Debug.DrawRay(transform.position + FeetOffset, transform.forward * distance, Color.magenta);
-
-        Physics.Raycast(rDir, out Rhit, distance);
-
-        if (Physics.Raycast(fDir, out Fhit, distance))
-        {
-            Angle = Vector3.Angle(Fhit.normal, transform.forward);
-            //Angle = Vector3.Angle(Rhit.point, Fhit.point);
-            if (Angle > 150f && Fhit.collider.gameObject.layer == 8)
-            {
-                transform.forward = transform.up;
-                Debug.Log("climbable");
-            }
-           
-            Debug.Log(Angle);
-        }
-    }
+    
 
 }
+
+
