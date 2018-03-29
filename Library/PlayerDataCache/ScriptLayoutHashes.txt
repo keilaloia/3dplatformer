@@ -1,6 +1,10 @@
 WindowsStandalone
 SceneListBegin?
+<<<<<<< HEAD
 Assets/Scene/Keil.unity
+=======
+Assets/Scene/Joosh.unity
+>>>>>>> level
 SceneListEnd?
 9b9c71cf06a525199c2eb4d3be433bc2 Assembly-CSharp.dll:Cinemachine.CinemachineStateDrivenCamera
 d448a17f843a763ce2befd887a67947a Assembly-CSharp.dll:.LoadMenu
@@ -119,6 +123,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 dca777389c8dc1ef6bdf46f33bd50859 Assembly-CSharp.dll:.CameraSingleTon
 acbc5cb550fd73551fc3f7462a1c830c Assembly-CSharp.dll:Cinemachine.NoiseSettings
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.levelManager
+35c6cd5c83c026ebcc10be6324b310f7 Assembly-CSharp.dll:.CrapCaste
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 b8e65e09cd696992a0e590a1fb903e01 Assembly-CSharp.dll:.turrent
@@ -131,7 +136,11 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 fe460ef6985517d84e68664be1e7af5b Assembly-CSharp.dll:Cinemachine.CinemachineFramingTransposer
 ed9279a9d1042bde3a6ae6cd0c1a92fa Assembly-CSharp.dll:Cinemachine.CinemachinePOV
 d5fc8f33eb01d03c3ee2b90244cbafda Assembly-CSharp.dll:.FloorPad
+<<<<<<< HEAD
 127b2d96d8aaa22eae93dc94a9c14297 Assembly-CSharp.dll:.Movement
+=======
+a3fc7edeaa725df81d4eb392b9b4070e Assembly-CSharp.dll:.Movement
+>>>>>>> level
 61a13d8f72f69fbb8c87ee8c414b086f Assembly-CSharp.dll:Cinemachine.CinemachineOrbitalTransposer
 d720d104ba371072094e66111bc68ea5 Assembly-CSharp.dll:.PlayerManeger
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:ProBuilder2.Examples.HueCube
@@ -179,11 +188,19 @@ d9ae8c6401801a4a88651871144fd209 Assembly-CSharp.dll:Cinemachine.CinemachineBlen
 76f3454fd858ca9749a9b7152f3017b1 Assembly-CSharp.dll:Cinemachine.CinemachineMixingCamera
 0d9c8b4275ad157d5c0da68d795fd426 Assembly-CSharp.dll:Cinemachine.Timeline.CinemachineShot
 082365e59fa03ee2299e62f279a02926 Assembly-CSharp.dll:Cinemachine.CinemachineConfiner
+<<<<<<< HEAD
 a3690d9a190f5949d7c4f0a4073ad2d1 Assembly-CSharp.dll:.CheckSlope
+=======
+ba8463202874d3f7c16ce97600adceda Assembly-CSharp.dll:.CheckSlope
+>>>>>>> level
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 879db55796310b9ecf6f670c91db1b42 Assembly-CSharp.dll:Cinemachine.CinemachineVirtualCamera
+<<<<<<< HEAD
+=======
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CrapPlayer
+>>>>>>> level
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 0fcbcbd9afa80c74caef99e7ba749bb0 Assembly-CSharp.dll:Cinemachine.CinemachineCollider
@@ -203,6 +220,10 @@ f739fe68956c7babcc274f024cbc4a87 Assembly-CSharp.dll:Cinemachine.CinemachineSmoo
 22a3d1e68cb382eddbc03a0ddcc4e2ab Assembly-CSharp.dll:.MyMovement
 10ec0cb73ba1bb3ce5a96a200340a4dd Assembly-CSharp.dll:.DemoMotor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Fall
+<<<<<<< HEAD
+=======
+f1f053d28d5cff0485be2fa8b7076b93 Assembly-CSharp.dll:.CrapMovement
+>>>>>>> level
 325f6c45c4f53da3d00a4334c638ecbb Assembly-CSharp.dll:.CameraRadius
 ef47b5b296e56702c76218de521ccc37 Assembly-CSharp.dll:Cinemachine.CinemachineBrain
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Cinemachine.CinemachineHardLockToTarget

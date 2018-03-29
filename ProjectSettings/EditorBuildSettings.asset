@@ -18,5 +18,10 @@ EditorBuildSettings:
     path: Assets/Scene/Win.unity
     guid: 989b5e7819b8ad74fa6783fe66a7a2ba
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scene/Keil.unity
     guid: a35ec99d0e8c9a24aaf5c880c4d1dbf6
+=======
+    path: Assets/Scene/Joosh.unity
+    guid: c240630287bf7c34fad2d3c649b6e700
+>>>>>>> level
