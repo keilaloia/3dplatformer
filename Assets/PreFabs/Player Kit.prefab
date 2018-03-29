@@ -976,7 +976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf07384cb5439043a77ec7be6245f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 5
   offset: {x: 0, y: 0, z: -5}
   pPoint: {fileID: 4306267414232614}
   maxViewAngle: -55
