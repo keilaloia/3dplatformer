@@ -26,7 +26,6 @@ public class CheckSlope : MonoBehaviour {
     public LayerMask Emask;
 
     private float raycastLength = 0.75f;
-    private Movement MoveScript;
     
     private Rigidbody RB;
     //sphere start point
@@ -37,7 +36,6 @@ public class CheckSlope : MonoBehaviour {
 	void Awake ()
     {
         RB = GetComponent<Rigidbody>();
-        MoveScript = GetComponent<Movement>();
 	}
 	
 	// Update is called once per frame
