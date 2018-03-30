@@ -2750,7 +2750,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 218091773}
-  m_LocalRotation: {x: -0.0013772495, y: -0.20856038, z: 0.00029387092, w: -0.9780085}
+  m_LocalRotation: {x: -0.0013772646, y: -0.20836306, z: 0.0002935841, w: -0.97805053}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16464,7 +16464,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 982321799}
-  m_LocalRotation: {x: 0.0013772892, y: 0.20855775, z: -0.00029369903, w: 0.97800905}
+  m_LocalRotation: {x: 0.001377288, y: 0.20836076, z: -0.00029341114, w: 0.97805107}
   m_LocalPosition: {x: -12.63501, y: 2.5, z: -4.2799835}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -16629,7 +16629,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 982846145}
-  m_LocalRotation: {x: 0.07251403, y: -0.2018949, z: -0.014990639, w: -0.9766041}
+  m_LocalRotation: {x: 0.07251406, y: -0.2018949, z: -0.014990547, w: -0.9766041}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -32919,7 +32919,7 @@ Transform:
   m_GameObject: {fileID: 1631650861}
   m_LocalRotation: {x: -0.5287769, y: -0, z: 0.84876084, w: 0}
   m_LocalPosition: {x: 468.83447, y: 198.68582, z: -520.2202}
-  m_LocalScale: {x: 0.09999998, y: 10.5, z: 0.099999994}
+  m_LocalScale: {x: 0.09999998, y: 0.65291595, z: 0.10000013}
   m_Children: []
   m_Father: {fileID: 51134484}
   m_RootOrder: 4
@@ -57699,6 +57699,7 @@ GameObject:
   - component: {fileID: 2135358070}
   - component: {fileID: 2135358069}
   - component: {fileID: 2135358068}
+  - component: {fileID: 2135358071}
   m_Layer: 0
   m_Name: obj_barrel
   m_TagString: Untagged
@@ -57781,3 +57782,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135358066}
   m_Mesh: {fileID: 4300000, guid: 8843ce953e5d8f743b333342c485ae4d, type: 3}
+--- !u!65 &2135358071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135358066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 85.22406, y: 132.07635, z: 85.224}
+  m_Center: {x: 0.00009918213, y: 66.03815, z: 0.000061035156}
