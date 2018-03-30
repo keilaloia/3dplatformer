@@ -17,12 +17,12 @@ public class Movement : MonoBehaviour
     public float JumpHeight;
     public float turnAnglePerSec;
     public float Rotation_Friction;
+    public float AirDrag;
     public GameObject PlayerMesh;
     public Animator anim;
+
+
     private Vector3 mDir;
-
-
-
     private Rigidbody RB;
     private Vector3 move;
     private float V;
@@ -85,10 +85,6 @@ public class Movement : MonoBehaviour
         
 
 
-
-
-
-
         //set up animations
         anim.SetBool("IsGrounded", isGrounded);
         anim.SetFloat("Speed", mDir.magnitude);
@@ -106,8 +102,6 @@ public class Movement : MonoBehaviour
             fVelocity = Mathf.Min(fVelocity, MaxwSpeed);  
             RB.velocity = move;
 
-         
-
         }
         else
         {
@@ -115,6 +109,7 @@ public class Movement : MonoBehaviour
             fVelocity = Mathf.Max(fVelocity, 0);
             fVelocity += decelRatePerSec * Time.deltaTime;
             RB.velocity = move;
+            RB.drag = AirDrag;
 
         }
 
@@ -126,6 +121,7 @@ public class Movement : MonoBehaviour
         if (bJump && isGrounded)
         {
             RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
+            RB.drag = AirDrag;
             Debug.Log("jumpcalled");
         }
         //only added for physics jump delete if necesarry, to improve add bool for bjump check
@@ -139,7 +135,7 @@ public class Movement : MonoBehaviour
 
     void Turning(Vector3 Dir)
     {
-        //remove the y to allow for only horizontal plane of movement DO NOT REMOVE CODE!!!!!!!!!!!
+        //remove the y to allow for only horizontal plane of movement DO (NOT) REMOVE CODE!!!!!!!!!!!
         Dir.y -= Dir.y;
 
         //whats controlling the character turns. keep Rotation_Friction to 1 unless you fully understand it ask keil for details. basically variable to slow down the turns
@@ -147,9 +143,4 @@ public class Movement : MonoBehaviour
        
 
     }
-
-   
-
-
-
 }
