@@ -12,13 +12,20 @@ public class WallClimb : MonoBehaviour {
 
     [SerializeField]
     private bool Climbable = false;
+    [SerializeField]
     private float Angle;
+    [SerializeField]
+    private float stepAngle;
+
     private float V;
     private float H;
     private Vector3 cDir;
     private Movement MoveScript;
     private Camera cam;
     private Rigidbody RB;
+
+    [SerializeField]
+    private float betweenangle;
     void Awake()
     {
         cam = Camera.main;
@@ -54,8 +61,13 @@ public class WallClimb : MonoBehaviour {
         Debug.DrawRay(transform.position + HeightOffset, transform.forward * distance, Color.black);
         Debug.DrawRay(transform.position + FeetOffset, transform.forward * distance, Color.magenta);
 
+        //make an if statement for stepoffset
         Physics.Raycast(rDir, out Rhit, distance);
+        //{
+            //stepAngle = Vector3.Angle(Rhit.normal, transform.forward);
+       // }
 
+        
 
         if (Physics.Raycast(fDir, out Fhit, distance))
         {
@@ -68,6 +80,8 @@ public class WallClimb : MonoBehaviour {
                 
 
             }
+          //  betweenangle = Vector3.Angle(Fhit.normal, Rhit.normal);
+
 
         }
         else

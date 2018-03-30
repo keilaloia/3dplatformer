@@ -64,8 +64,14 @@ public class Movement : MonoBehaviour
 
         
     }
+    void Update()
+    {
+        Jumpstuff(Input.GetButtonDown("ControllerJump"));
+        anim.SetFloat("Speed", mDir.magnitude);
 
-  
+
+    }
+
     void FixedUpdate()
     {
         Direction = cam.transform.forward;
@@ -81,14 +87,13 @@ public class Movement : MonoBehaviour
         //main methods making game work      
         Turning(mDir.normalized);
         MoveFowardAccel(mDir.magnitude);
-        Jumpstuff(Input.GetButtonDown("ControllerJump"));
-        
 
 
         //set up animations
         anim.SetBool("IsGrounded", isGrounded);
-        anim.SetFloat("Speed", mDir.magnitude);
+
     }
+ 
 
     void MoveFowardAccel(float ForwardInput)
     {
