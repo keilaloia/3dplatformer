@@ -109,7 +109,7 @@ public class Movement : MonoBehaviour
             fVelocity += decelRatePerSec * Time.deltaTime;
             fVelocity = Mathf.Max(fVelocity, 0);
             RB.velocity = move;
-            RB.drag = AirDrag;
+        
 
         }
 
