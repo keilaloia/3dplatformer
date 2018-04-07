@@ -67,7 +67,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
-        anim.SetFloat("Speed", mDir.magnitude);
+        //anim.SetFloat("Speed", mDir.magnitude);
 
 
     }
@@ -90,7 +90,7 @@ public class Movement : MonoBehaviour
 
 
         //set up animations
-        anim.SetBool("IsGrounded", isGrounded);
+        //anim.SetBool("IsGrounded", isGrounded);
 
     }
  
