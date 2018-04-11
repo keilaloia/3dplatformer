@@ -90,7 +90,6 @@ public class Movement : MonoBehaviour
 
 
         //set up animations
-        //anim.SetBool("IsGrounded", isGrounded);
 
     }
  
@@ -125,14 +124,20 @@ public class Movement : MonoBehaviour
     {
         if (bJump && isGrounded)
         {
-            RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
-            RB.drag = AirDrag;
+            anim.SetTrigger("IsGrounded");
+
+            //anim.SetBool("IsGrounded", isGrounded);
+
+            // RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
+            //RB.drag = AirDrag;
             Debug.Log("jumpcalled");
         }
         //only added for physics jump delete if necesarry, to improve add bool for bjump check
         else if (!isGrounded)
         {
             RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
+            // anim.SetTrigger("IsGrounded", isGrounded);
+
             //Debug.Log("being called");
         }
 
