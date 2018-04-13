@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class honeycol : MonoBehaviour {
 
-    public float movedepricator;
-    void OnParticleCollision(GameObject other)
+    private Movement movesingleton;
+    private float currentwalkspeed;
+    void Awake()
     {
-       // Rigidbody body = other.rigidbody;
-       // if(body)
-        //{
-          //  body.velocity = new Vector3(body.velocity.x * movedepricator, body.velocity.y * movedepricator, body.velocity.z * movedepricator)
-        //}
+        movesingleton = Movement.instance.GetComponent<Movement>();
+        currentwalkspeed = movesingleton.MaxwSpeed;  
+        Debug.Log(currentwalkspeed);
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+      
         Debug.Log("derp");
-       
+        if (other.tag == "Player")
+        {
+            movesingleton.MaxwSpeed = 5; 
+        }
+
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        movesingleton.MaxwSpeed = currentwalkspeed;
     }
    
 }

@@ -6,8 +6,6 @@ public class Bomb : MonoBehaviour {
 
 
     public GameObject mygameobject;
-    public Transform mytransform;
-    public Rigidbody playerrb;
     public Animator bombFlash;
     public bool boom;
     public float bombForce;
@@ -49,13 +47,12 @@ public class Bomb : MonoBehaviour {
         if (boom)
         {
             Instantiate(splat, mygameobject.transform.position, mygameobject.transform.rotation);
-            DestroyObject(mygameobject);
+            mygameobject.SetActive(false);
+
             Debug.Log("triggeredasdf");
         }
     }
 
-    void Position()
-    {
-    }
+  
 
 }
