@@ -16,7 +16,7 @@ public class honeycol : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
       
-        Debug.Log("derp");
+        //Debug.Log("derp");
         if (other.tag == "Player")
         {
             movesingleton.MaxwSpeed = 5; 

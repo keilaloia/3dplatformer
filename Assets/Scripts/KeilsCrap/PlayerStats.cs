@@ -72,15 +72,15 @@ public class PlayerStats : MonoBehaviour {
             //Hearts.enabled = false;
             HeartShow = false;
             MyHearts.SetBool("show",HeartShow);
-            Debug.Log("falsebool");
-            Debug.Log(HeartShow);
+            //Debug.Log("falsebool");
+            //Debug.Log(HeartShow);
         }
         //saftey checks to see if we have been attacked and if we have and are missing health turn on ui
         else if(heartsCheck == true || currentHealth != maxHealth)
         {
             HeartShow = true;
             MyHearts.SetBool("show", HeartShow);
-            Debug.Log("truebool");
+           // Debug.Log("truebool");
         }
     }
 }
