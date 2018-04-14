@@ -122,6 +122,7 @@ MonoBehaviour:
   bombForce: 5
   bombHeight: 5
   splat: {fileID: 1311589422176266, guid: da8407a61d981ec459ba6c141214732d, type: 2}
+  reset: 0
 --- !u!135 &135843012489908684
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -84,7 +84,8 @@ public class Movement : MonoBehaviour
     {
        
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
-        //anim.SetFloat("Speed", mDir.magnitude);
+
+      
 
 
 
@@ -108,9 +109,10 @@ public class Movement : MonoBehaviour
 
 
         //set up animations
-
+        anim.SetFloat("Speed", mDir.magnitude);
+        Debug.Log(mDir.magnitude);
     }
- 
+
 
     void MoveFowardAccel(float ForwardInput)
     {
@@ -148,7 +150,7 @@ public class Movement : MonoBehaviour
             //transform.position = childTransform.position;
             //anim.SetBool("TouchGround", isGrounded);
             anim.SetTrigger("dojump");
-            // RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
+           // RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
             //RB.drag = AirDrag;
             Debug.Log("jumpcalled");
         }

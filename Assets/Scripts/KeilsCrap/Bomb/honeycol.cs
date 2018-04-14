@@ -6,12 +6,28 @@ public class honeycol : MonoBehaviour {
 
     private Movement movesingleton;
     private float currentwalkspeed;
+    private float currentTimer;
+    private float Timer = 5f;
+    
     void Awake()
     {
+       
         movesingleton = Movement.instance.GetComponent<Movement>();
-        currentwalkspeed = movesingleton.MaxwSpeed;  
-        Debug.Log(currentwalkspeed);
+        currentwalkspeed = movesingleton.MaxwSpeed;
+        currentTimer = Timer;
 
+    }
+    void Update()
+    {
+        Timer -= Time.deltaTime;
+        if(Timer <= 0)
+        {
+
+            DestroyObject(this.gameObject);
+            movesingleton.MaxwSpeed = currentwalkspeed;
+            
+            Debug.Log("destroy");
+        }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -19,7 +35,7 @@ public class honeycol : MonoBehaviour {
         //Debug.Log("derp");
         if (other.tag == "Player")
         {
-            movesingleton.MaxwSpeed = 5; 
+            movesingleton.MaxwSpeed = 5;
         }
 
     }
