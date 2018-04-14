@@ -13,4 +13,5 @@ public class PlayerManeger : MonoBehaviour {
 
     public GameObject Player;
 
+    
 }

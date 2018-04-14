@@ -10,7 +10,7 @@ public class Mother : MonoBehaviour {
     public bool[] IsGreen;
     public Material[] material;
     public Renderer[] rend;
-    public GameObject Nice;
+
     public GameObject[] remove;
 
     public bool IsFinished;
@@ -24,46 +24,86 @@ public class Mother : MonoBehaviour {
 
     void DoOver()
     {
+        ////////////////////////////////
         rend[0].sharedMaterial = material[0];
         IsGreen[0] = false;
-        DestroyObject(remove[0]);
+        GoodBox[0].IsGreen = false;       
         ////////////////////////////////
         rend[1].sharedMaterial = material[0];
         IsGreen[1] = false;
-        DestroyObject(remove[1]);
+        GoodBox[1].IsGreen = false;
+        ////////////////////////////////
+        rend[2].sharedMaterial = material[0];
+        IsGreen[2] = false;
+        GoodBox[2].IsGreen = false;
+        ////////////////////////////////
+        rend[3].sharedMaterial = material[0];
+        IsGreen[3] = false;
+        GoodBox[3].IsGreen = false;
         ////////////////////////////////
     }
 
-    void OnSwitch()
-    {
-        Nice.SetActive(true);
-    }
+
 
 
     void Update ()
     {
-        if (GoodBox[0].IsGreen == true && GoodBox[0].IsBoxGood == true)
+        if (GoodBox[0].IsGreen && GoodBox[0].IsBoxGood )
         {
             rend[0].sharedMaterial = material[1];
             IsGreen[0] = true;
         }
 
-        if (GoodBox[1].IsGreen == true && GoodBox[1].IsBoxGood == true)
+        if (GoodBox[1].IsGreen && GoodBox[1].IsBoxGood)
         {
             rend[1].sharedMaterial = material[1];
             IsGreen[1] = true;
         }
 
+        if (GoodBox[2].IsGreen && GoodBox[2].IsBoxGood)
+        {
+            rend[2].sharedMaterial = material[1];
+            IsGreen[2] = true;
+        }
 
-        //if (RPad[0].Again == true)
-        //{
-        //    DoOver();
-        //}
+        if (GoodBox[3].IsGreen && GoodBox[3].IsBoxGood)
+        {
+            rend[3].sharedMaterial = material[1];
+            IsGreen[3] = true;
+        }
 
-        if (IsGreen[0] && IsGreen[1] == true)
+
+        if (RPad[0].Again)
+        {
+            DoOver();
+            RPad[0].Again = false;
+        }
+
+        if (RPad[1].Again)
+        {
+            DoOver();
+            RPad[1].Again = false;
+
+        }
+
+        if (RPad[2].Again)
+        {
+            DoOver();
+            RPad[2].Again = false;
+
+        }
+
+        if (RPad[3].Again)
+        {
+            DoOver();
+            RPad[3].Again = false;
+
+        }
+
+        if (IsGreen[0] && IsGreen[1] && IsGreen[2] && IsGreen[3] == true)
         {
             IsFinished = true;
-            OnSwitch();
+
         }
     }
 }

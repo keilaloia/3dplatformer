@@ -12,13 +12,25 @@ public class AddScore : MonoBehaviour {
     {
         point = 1;
 	}
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision whatHitMe)
     {
-        Score.score += point;
+        if (whatHitMe.gameObject.CompareTag("Player"))
+        {
+            Score.score += point;
 
-        DestroyObject(Coin);
+            DestroyObject(Coin);
+        }
+
     }
+    //private void OnTriggerEnter(Collider whatHitMe)
+    //{
+    //    if (whatHitMe.gameObject.CompareTag("Player"))
+    //    {
+    //        Score.score += point;
+
+    //        DestroyObject(Coin);
+    //    }
+    //}
 
 
     void FixedUpdate ()

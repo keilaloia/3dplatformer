@@ -12,8 +12,8 @@ public class Boxplate : MonoBehaviour {
         if (collision.gameObject.tag == "Box")
         {
             Debug.Log("yay");
-          //  Door.transform.rotation.x + 1f;
-            //Door.velocity = transform.up * Speed;
+            //Door.transform.rotation.x + 1f;
+            Door.velocity = transform.up * Speed;
         }
     }
     void Start () {

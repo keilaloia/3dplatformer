@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JumpPad : MonoBehaviour
 {
+    Movement movement;
     public Rigidbody player;
     public int force = 20;
     void Start()
@@ -16,9 +17,12 @@ public class JumpPad : MonoBehaviour
         if (whatHitMe.gameObject.CompareTag("Player"))
         {
             player.AddForce(0, force, 0);
+            
+                //(Input.GetButtonDown("ControllerJump"));
+
         }
     }
-    // whatHitMe.GetComponent<MyMovement>()._mDirection.y = Mathf.Sqrt(-2.0f * Physics.gravity.y * 20);
+    
 
     void Update()
     {
