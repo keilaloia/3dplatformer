@@ -150,7 +150,7 @@ public class Movement : MonoBehaviour
             //transform.position = childTransform.position;
             //anim.SetBool("TouchGround", isGrounded);
             anim.SetTrigger("dojump");
-           // RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
+            RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
             //RB.drag = AirDrag;
             Debug.Log("jumpcalled");
         }
@@ -161,7 +161,7 @@ public class Movement : MonoBehaviour
             //anim.applyRootMotion = false;
             //anim.SetBool("TouchGround", false);
 
-            //RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
+            RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
             // anim.SetTrigger("IsGrounded", isGrounded);
 
             //Debug.Log("being called");
@@ -182,6 +182,11 @@ public class Movement : MonoBehaviour
     {
         anim.applyRootMotion = false;
        // RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
+
+    }
+    public void EndJump()
+    {
+            anim.SetTrigger("EndJump");
 
     }
 }
