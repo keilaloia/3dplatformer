@@ -9,7 +9,8 @@ public class points : MonoBehaviour {
     public moveType moveTypes;
     public Transform[] pathpoints;
 
-  
+    public GameObject Player;
+
 
     public int curentPath = 0;
     public float reachPoint = 5f;
@@ -76,6 +77,22 @@ public class points : MonoBehaviour {
         foreach (Transform pathpoint in pathpoints)
         {
             if (pathpoint) { Gizmos.DrawWireSphere(pathpoint.position, reachPoint); }
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == Player)
+        {
+            Player.transform.parent = transform;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == Player)
+        {
+            Player.transform.parent = null;
         }
     }
 }

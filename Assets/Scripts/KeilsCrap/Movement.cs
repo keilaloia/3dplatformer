@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public float AirDrag;
     public GameObject PlayerMesh;
     public Animator anim;
+    public Transform childTransform;
 
 
     private Vector3 mDir;
@@ -34,6 +35,15 @@ public class Movement : MonoBehaviour
     private Camera cam;
     private Vector3 Direction;
 
+    //singleton creation
+    private static Movement _Instance;
+    public static Movement instance
+    {
+        get
+        {
+            return _Instance;
+        }
+    }
 
 
 
@@ -49,6 +59,12 @@ public class Movement : MonoBehaviour
     }
     void Awake()
     {
+        if (_Instance == null)
+        {
+            _Instance = this;
+        }
+        else
+            Destroy(gameObject);
 
         //Get Main camera in Use.
         cam = Camera.main;
@@ -66,8 +82,11 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
+       
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
-        anim.SetFloat("Speed", mDir.magnitude);
+
+      
+
 
 
     }
@@ -90,10 +109,10 @@ public class Movement : MonoBehaviour
 
 
         //set up animations
-        anim.SetBool("IsGrounded", isGrounded);
-
+        anim.SetFloat("Speed", mDir.magnitude);
+        Debug.Log(mDir.magnitude);
     }
- 
+
 
     void MoveFowardAccel(float ForwardInput)
     {
@@ -114,6 +133,7 @@ public class Movement : MonoBehaviour
             fVelocity += decelRatePerSec * Time.deltaTime;
             fVelocity = Mathf.Max(fVelocity, 0);
             RB.velocity = move;
+
         
 
         }
@@ -125,14 +145,25 @@ public class Movement : MonoBehaviour
     {
         if (bJump && isGrounded)
         {
+            // anim.SetTrigger("IsGrounded");
+            anim.applyRootMotion = true;
+            //transform.position = childTransform.position;
+            //anim.SetBool("TouchGround", isGrounded);
+            anim.SetTrigger("dojump");
             RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
-            RB.drag = AirDrag;
+            //RB.drag = AirDrag;
             Debug.Log("jumpcalled");
         }
         //only added for physics jump delete if necesarry, to improve add bool for bjump check
         else if (!isGrounded)
         {
+            //anim.SetTrigger("IsGrounded");
+            //anim.applyRootMotion = false;
+            //anim.SetBool("TouchGround", false);
+
             RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
+            // anim.SetTrigger("IsGrounded", isGrounded);
+
             //Debug.Log("being called");
         }
 
@@ -145,7 +176,17 @@ public class Movement : MonoBehaviour
 
         //whats controlling the character turns. keep Rotation_Friction to 1 unless you fully understand it ask keil for details. basically variable to slow down the turns
         transform.forward = Vector3.RotateTowards(transform.forward, Dir, turnAnglePerSec * Time.deltaTime * Rotation_Friction, 0.0f);
-       
+    }
+
+    public void EndRootMotion()
+    {
+        anim.applyRootMotion = false;
+       // RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
+
+    }
+    public void EndJump()
+    {
+            anim.SetTrigger("EndJump");
 
     }
 }
