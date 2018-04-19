@@ -75,7 +75,7 @@ public class points : MonoBehaviour {
 
         foreach (Transform pathpoint in pathpoints)
         {
-            if (pathpoint) { Gizmos.DrawSphere(pathpoint.position, reachPoint); }
+            if (pathpoint) { Gizmos.DrawWireSphere(pathpoint.position, reachPoint); }
         }
     }
 }

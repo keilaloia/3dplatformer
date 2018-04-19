@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4154165416826982}
   - component: {fileID: 33190439954287616}
   - component: {fileID: 23168808567055894}
+  - component: {fileID: 65285912231555376}
   m_Layer: 0
   m_Name: pCylinder10
   m_TagString: Untagged
@@ -111,3 +112,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139051450359650}
   m_Mesh: {fileID: 4300000, guid: 16ffd8c2b6345bb46aa33229454f77f1, type: 3}
+--- !u!65 &65285912231555376
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139051450359650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 7.443622, z: 1}
+  m_Center: {x: -0.05733943, y: 3.7126071, z: 6.720015}
