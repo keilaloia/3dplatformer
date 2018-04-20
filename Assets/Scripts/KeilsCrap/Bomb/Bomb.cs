@@ -13,8 +13,9 @@ public class Bomb : MonoBehaviour {
     public bool boom;
     public float bombForce;
     public float bombHeight;
-    public GameObject splat;
 
+    public GameObject splat;
+    public GameObject Player;
 
     private Camera cam;
     private float CurrentTimer;
@@ -39,7 +40,7 @@ public class Bomb : MonoBehaviour {
         //////////////////////////////////////////////////
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         ResetBomb();
 
@@ -55,8 +56,8 @@ public class Bomb : MonoBehaviour {
 
                 RB = mygameobject.AddComponent<Rigidbody>();
                 //RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight), PlayerRB.velocity.z * bombForce);
-                RB.AddForce(transform.up * (Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight)), ForceMode.Impulse);
-                RB.AddForce(transform.forward * bombForce, ForceMode.Impulse);
+                RB.AddForce(Player.transform.up * (Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight)), ForceMode.Impulse);
+                RB.AddForce(Player.transform.forward * bombForce, ForceMode.Impulse);
                 RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
                 RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
                
@@ -76,22 +77,16 @@ public class Bomb : MonoBehaviour {
     void ResetBomb()
     {
      
-        if (boom)
+        if (boom && isthrown)
         {
             Instantiate(splat, mygameobject.transform.position, mygameobject.transform.rotation);
             DestroyObject(RB);
             MeshComponent.enabled = false;
-            reset = true;
-
-           
-
-        }
-        if(reset)
-        {
             ResetValues();
+
+
+
         }
-
-
     }
 
     void ResetValues()
@@ -102,12 +97,18 @@ public class Bomb : MonoBehaviour {
         MeshComponent.enabled = true;
         reset = false;
         isthrown = false;
+        boom = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void BombArm()
     {
-        collision.transform.tag = "Player";
-
+        boom = true;
     }
+
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    collision.transform.tag = "Player";
+
+    //}
 
 }
