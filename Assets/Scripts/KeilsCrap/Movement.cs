@@ -24,10 +24,13 @@ public class Movement : MonoBehaviour
 
 
     private Vector3 mDir;
+    private Vector3 KmDir;
     private Rigidbody RB;
     private Vector3 move;
     private float V;
     private float H;
+    private float kV;
+    private float kH;
     private float AccelRatePerSec;
     private float decelRatePerSec;
     private float fVelocity;
@@ -85,7 +88,9 @@ public class Movement : MonoBehaviour
        
         Jumpstuff(Input.GetButtonDown("ControllerJump"));
 
-      
+        //keyboard
+        Jumpstuff(Input.GetButtonDown("kJump"));
+
 
 
 
@@ -101,15 +106,30 @@ public class Movement : MonoBehaviour
         //grab controller input and add to move direction 
         V = Input.GetAxis("LeftJoyY");
         H = Input.GetAxis("LeftJoyX");
+
+        //keyboard
+        kV = Input.GetAxis("Vertical");
+        kH = Input.GetAxis("Horizontal");
+
+
         mDir = (cam.transform.right * H) + (Direction * V);
+        //keyboard
+        KmDir = (cam.transform.right * kH) + (Direction * kV);
 
         //main methods making game work      
         Turning(mDir.normalized);
         MoveFowardAccel(mDir.magnitude);
 
+        Turning(KmDir.normalized);
+
+        //keyboard
+        MoveFowardAccel(KmDir.magnitude);
+
 
         //set up animations
         anim.SetFloat("Speed", mDir.magnitude);
+        anim.SetFloat("Speed", KmDir.magnitude);
+
         Debug.Log(mDir.magnitude);
     }
 
