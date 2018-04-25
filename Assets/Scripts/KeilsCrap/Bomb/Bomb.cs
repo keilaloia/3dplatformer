@@ -17,6 +17,12 @@ public class Bomb : MonoBehaviour {
     public GameObject splat;
     public GameObject Player;
 
+    public Transform RightHand;
+
+    public Animator Anim;
+    public Animation throwbomb;
+
+
     private Camera cam;
     private float CurrentTimer;
 
@@ -26,23 +32,60 @@ public class Bomb : MonoBehaviour {
     private Transform startingParent;
     private Rigidbody RB;
 
+    private Movement movesingleton;
+
+
     void Awake()
     {
-        cam = Camera.main;
-        
+        //cam = Camera.main;
+        //movesingleton = Movement.instance.GetComponent<Movement>();
+
+        throwbomb = GetComponent<Animation>();
         //CurrentTimer = respawnBombtimer;
         startingParent = transform.parent;
 
 
 
         //////////////////////////////////////////////////
-        ////ignore collision with player to fix ball throw
+        ////bomb must lose its parent at end of animation
+        //////////////////////////////////////////////////
+        ////current problem is that i cannot refrence the end of an animation to set up a bool or animation event because it is attached to my player
+        //// adding in a singleton to work as an intermediary ended up breaking the script and cause the bomb throwing in general not to trigger
+        //// this is the closest ive gotten it to work its janky as all hell
         //////////////////////////////////////////////////
     }
     // Update is called once per frame
     void Update()
     {
         ResetBomb();
+        //EndAnim();
+        if (Input.GetButtonDown("buttonThrow"))
+        {
+           
+            if(isthrown)
+            {
+                Debug.Log("do nothing");
+                
+            }
+            else if(!isthrown)
+            {
+                Debug.Log("animationtriggered");
+                Anim.SetTrigger("DoThrow");
+
+                transform.parent = RightHand;
+
+                if (throwbomb.IsPlaying("Throw") == false)
+                {
+                    Anim.SetTrigger("EndThrow");
+                    Debug.Log("itworked");
+                }
+
+
+            }
+           
+        }
+
+       
 
         if (Input.GetButtonUp("buttonThrow"))
         {
@@ -50,6 +93,7 @@ public class Bomb : MonoBehaviour {
 
             if(!isthrown)
             {
+
                 bombFlash.SetTrigger("startTimer");
 
                 transform.parent = null;
@@ -60,6 +104,7 @@ public class Bomb : MonoBehaviour {
                 RB.AddForce(Player.transform.forward * bombForce, ForceMode.Impulse);
                 RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
                 RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                
                
                 isthrown = true;
             }
@@ -105,10 +150,14 @@ public class Bomb : MonoBehaviour {
         boom = true;
     }
 
-    //void OnCollisionEnter(Collision collision)
+    //void EndAnim()
     //{
-    //    collision.transform.tag = "Player";
-
+    //    Debug.Log("called");
+    //    if(movesingleton.ThrowEnded == true)
+    //    {
+    //        transform.parent = null;
+    //        //movesingleton.ThrowEnded 
+    //    }
     //}
 
 }
