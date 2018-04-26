@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour {
 
+    public static Bomb instance;
     public Rigidbody PlayerRB;
     public float respawnBombtimer;
     public Transform bombrespawn;
@@ -13,19 +14,18 @@ public class Bomb : MonoBehaviour {
     public bool boom;
     public float bombForce;
     public float bombHeight;
+    public float playervelocitymultiplier = 1f;
 
     public GameObject splat;
     public GameObject Player;
-
     public Transform RightHand;
-
     public Animator Anim;
-    public Animation throwbomb;
 
+    [HideInInspector]
+    public bool test = false;
 
     private Camera cam;
     private float CurrentTimer;
-
     private bool reset = false;
     private bool isthrown = false;
     private bool throwButton = false;
@@ -34,87 +34,57 @@ public class Bomb : MonoBehaviour {
 
     private Movement movesingleton;
 
-
     void Awake()
     {
+        Bomb.instance = this;
+        
         //cam = Camera.main;
-        //movesingleton = Movement.instance.GetComponent<Movement>();
-
-        throwbomb = GetComponent<Animation>();
+        movesingleton = Movement.instance.GetComponent<Movement>();
         //CurrentTimer = respawnBombtimer;
+
         startingParent = transform.parent;
 
-
-
-        //////////////////////////////////////////////////
-        ////bomb must lose its parent at end of animation
-        //////////////////////////////////////////////////
-        ////current problem is that i cannot refrence the end of an animation to set up a bool or animation event because it is attached to my player
-        //// adding in a singleton to work as an intermediary ended up breaking the script and cause the bomb throwing in general not to trigger
-        //// this is the closest ive gotten it to work its janky as all hell
-        //////////////////////////////////////////////////
     }
+
+    public void ResetParent()
+    {
+        transform.parent = null;
+    }
+   public void ParentHand()
+   {
+        transform.parent = RightHand;
+        transform.position = RightHand.position;
+
+   }
+   public void ShouldThrow()
+    {
+        if (!isthrown)
+        {
+            ThrowBomb();
+        }
+        else if (isthrown)
+        {
+            Debug.Log(" do nothing");
+        }
+    }
+
+   public void ThrowBomb()
+    {
+        bombFlash.SetTrigger("startTimer");
+        transform.parent = null;
+        RB = mygameobject.AddComponent<Rigidbody>();
+        RB.AddForce(Player.transform.up * (Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight)), ForceMode.Impulse  );
+        RB.AddForce(Player.transform.forward * bombForce + Player.GetComponent<Rigidbody>().velocity * playervelocitymultiplier , ForceMode.Impulse);
+        RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
+        RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+        isthrown = true;
+    }
+
     // Update is called once per frame
+
     void Update()
     {
         ResetBomb();
-        //EndAnim();
-        if (Input.GetButtonDown("buttonThrow"))
-        {
-           
-            if(isthrown)
-            {
-                Debug.Log("do nothing");
-                
-            }
-            else if(!isthrown)
-            {
-                Debug.Log("animationtriggered");
-                Anim.SetTrigger("DoThrow");
-
-                transform.parent = RightHand;
-
-                if (throwbomb.IsPlaying("Throw") == false)
-                {
-                    Anim.SetTrigger("EndThrow");
-                    Debug.Log("itworked");
-                }
-
-
-            }
-           
-        }
-
-       
-
-        if (Input.GetButtonUp("buttonThrow"))
-        {
-
-
-            if(!isthrown)
-            {
-
-                bombFlash.SetTrigger("startTimer");
-
-                transform.parent = null;
-
-                RB = mygameobject.AddComponent<Rigidbody>();
-                //RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight), PlayerRB.velocity.z * bombForce);
-                RB.AddForce(Player.transform.up * (Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight)), ForceMode.Impulse);
-                RB.AddForce(Player.transform.forward * bombForce, ForceMode.Impulse);
-                RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
-                RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-                
-               
-                isthrown = true;
-            }
-            else if(isthrown)
-            {
-                Debug.Log(" do nothing");
-            }
-
-        }
-      
 
     }
 
@@ -127,8 +97,8 @@ public class Bomb : MonoBehaviour {
             Instantiate(splat, mygameobject.transform.position, mygameobject.transform.rotation);
             DestroyObject(RB);
             MeshComponent.enabled = false;
+            test = true;
             ResetValues();
-
 
 
         }
@@ -143,9 +113,11 @@ public class Bomb : MonoBehaviour {
         reset = false;
         isthrown = false;
         boom = false;
+        movesingleton.BombThrown = false;
     }
 
-    void BombArm()
+    //gonna be honest idk if this is actually doing anything but too scared too touch 
+    public void BombArm()
     {
         boom = true;
     }

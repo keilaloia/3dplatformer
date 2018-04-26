@@ -23,12 +23,13 @@ public class Movement : MonoBehaviour
     public Transform childTransform;
 
     [HideInInspector]
-    public bool ThrowEnded = false;
-
+    public bool BombThrown = false;
+    [HideInInspector]
+    public Rigidbody RB;
 
     private Vector3 mDir;
     private Vector3 KmDir;
-    private Rigidbody RB;
+   
     private Vector3 move;
     private float V;
     private float H;
@@ -40,7 +41,6 @@ public class Movement : MonoBehaviour
     private CapsuleCollider Bound;
     private Camera cam;
     private Vector3 Direction;
-
     //singleton creation
     private static Movement _Instance;
     public static Movement instance
@@ -88,14 +88,17 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-       
-        Jumpstuff(Input.GetButtonDown("ControllerJump"));
-        Attack(Input.GetButtonDown("ControllerAttack"));
 
         //keyboard
         //Jumpstuff(Input.GetButtonDown("kJump"));
 
+        Jumpstuff(Input.GetButtonDown("ControllerJump"));
+        Attack(Input.GetButtonDown("ControllerAttack"));
+        if(!BombThrown)
+        {
+            ThrowBomb(Input.GetButtonDown("buttonThrow"));
 
+        }
 
 
     }
@@ -103,39 +106,32 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Direction = cam.transform.forward;
-        
 
+        //keyboard
+        // kV = Input.GetAxis("Vertical");
+        // kH = Input.GetAxis("Horizontal");
+        // KmDir = (cam.transform.right * kH) + (Direction * kV);
+        // MoveFowardAccel(KmDir.magnitude);
+        // Turning(KmDir.normalized);
+        // anim.SetFloat("Speed", KmDir.magnitude);
 
 
         //grab controller input and add to move direction 
         V = Input.GetAxis("LeftJoyY");
         H = Input.GetAxis("LeftJoyX");
 
-        //keyboard
-       // kV = Input.GetAxis("Vertical");
-       // kH = Input.GetAxis("Horizontal");
-
-
         mDir = (cam.transform.right * H) + (Direction * V);
-        //keyboard
-       // KmDir = (cam.transform.right * kH) + (Direction * kV);
+     
 
         //main methods making game work      
         Turning(mDir.normalized);
         MoveFowardAccel(mDir.magnitude);
 
-        //Turning(KmDir.normalized);
-
-        //keyboard
-        //MoveFowardAccel(KmDir.magnitude);
-
-
         //set up animations
         anim.SetFloat("Speed", mDir.magnitude);
 
-        //anim.SetFloat("Speed", KmDir.magnitude);
 
-       // Debug.Log(mDir.magnitude);
+       Debug.Log(mDir.magnitude);
     }
 
 
@@ -221,10 +217,38 @@ public class Movement : MonoBehaviour
         anim.SetTrigger("DoAttack");
     }
 
-    //void ThrowIntermediary()
-    //{
-    //    ThrowEnded = true;
+    public void ThrowBomb(bool bThrow)
+    {
+        if(bThrow)
+        {
+
+            Bomb.instance.ParentHand();
+            anim.SetTrigger("DoThrow");
+            BombThrown = true;
+        }
+
+    }
+
+    public void ThrowIntermediary()
+    {
+        Bomb.instance.ShouldThrow();
+        Bomb.instance.ResetParent();
+    }
+
+    void EndOfThrow()
+    {
        
-    //    Debug.Log("throwended");
-    //}
+        //if(!Bomb.instance.gameObject.GetComponent<MeshRenderer>().enabled)
+        
+            anim.SetTrigger("EndThrow");
+            //BombThrown = false;
+            Debug.Log("throwended");
+
+
+        
+
+
+
+
+    }
 }
