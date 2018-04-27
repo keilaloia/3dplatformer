@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Joosh.unity
     guid: c240630287bf7c34fad2d3c649b6e700
+  - enabled: 1
+    path: Assets/Scene/Joosh 1.unity
+    guid: 2f85db2c4ac1549468da2ff84cc4bd10

@@ -1,6 +1,6 @@
 WindowsStandalone
 SceneListBegin?
-Assets/Scene/Joosh.unity
+Assets/Scene/Joosh 1.unity
 SceneListEnd?
 c6dec7582b28b5984255bf8a98f2d57b Assembly-CSharp.dll:.Bomb
 ff7f23e06634b204c443e48727a55ff0 Assembly-CSharp.dll:.Enemy_0_1
@@ -90,6 +90,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 ca3ac0b37762af0a2124a1fd6e4bfbed Assembly-CSharp.dll:Cinemachine.CinemachineExternalCamera
+3ecea0c2e43f5d97a17c441bfcf59a7d Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
 9008bdf459020f5356e69af2650f275e Assembly-CSharp.dll:ProBuilder2.Examples.IcoBumpin
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Score
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -142,6 +143,7 @@ d720d104ba371072094e66111bc68ea5 Assembly-CSharp.dll:.PlayerManeger
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:ProBuilder2.Examples.HueCube
 c261e943c1efad142d715ca930c9b7c6 Assembly-CSharp.dll:Cinemachine.CinemachineComposer
 779f79647982f5fe22f113a61061d88a Assembly-CSharp.dll:.Appear
+205965134a5874db410d674ebdf33ba7 Assembly-CSharp.dll:.ExampleWheelController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 253aa7c97d0743cc9b91d5116db69272 Assembly-CSharp.dll:Cinemachine.CinemachineDollyCart
@@ -190,7 +192,6 @@ f1f053d28d5cff0485be2fa8b7076b93 Assembly-CSharp.dll:.CrapMovement
 0d9c8b4275ad157d5c0da68d795fd426 Assembly-CSharp.dll:Cinemachine.Timeline.CinemachineShot
 082365e59fa03ee2299e62f279a02926 Assembly-CSharp.dll:Cinemachine.CinemachineConfiner
 3cf323b998d8590254cd1a01fbe9b215 Assembly-CSharp.dll:.CheckSlope
-910edd412760e3f6250b4c37af7f3584 Assembly-CSharp.dll:Cinemachine.PostFX.CinemachinePostFX
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -208,6 +209,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 26c3a8175ce7d2d11b1fc06e7234c688 Assembly-CSharp.dll:.Bullet
+f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 420d73cb5979b4d126f3c0d301bcca59 Assembly-CSharp.dll:ProBuilder2.Examples.CameraControls
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 f739fe68956c7babcc274f024cbc4a87 Assembly-CSharp.dll:Cinemachine.CinemachineSmoothPath
@@ -227,6 +229,3 @@ dff5701cb3f753019912ee0793ea5a63 Assembly-CSharp.dll:.Mother
 32dcc1dca94294515dfea07e896e1a84 Assembly-CSharp.dll:ProBuilder2.Examples.RuntimeEdit
 9dd74a41363b134db6b934985dfd2f92 Assembly-CSharp.dll:Cinemachine.CinemachineClearShot
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AnchorSingleton
-205965134a5874db410d674ebdf33ba7 Assembly-CSharp.dll:.ExampleWheelController
-f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
-3ecea0c2e43f5d97a17c441bfcf59a7d Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
