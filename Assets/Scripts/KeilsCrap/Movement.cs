@@ -92,7 +92,7 @@ public class Movement : MonoBehaviour
         //keyboard
         //Jumpstuff(Input.GetButtonDown("kJump"));
 
-        Jumpstuff(Input.GetButtonDown("ControllerJump"));
+        Jumpstuff(Input.GetButtonDown("ControllerJump")); 
         Attack(Input.GetButtonDown("ControllerAttack"));
         if(!BombThrown)
         {
@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour
 
         }
 
-
+        anim.SetBool("IsGrounded", isGrounded);
     }
 
     void FixedUpdate()
