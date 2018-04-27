@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4336407932230278}
   - component: {fileID: 33330684336078346}
   - component: {fileID: 23925728039705724}
+  - component: {fileID: 65239661620786764}
   m_Layer: 0
   m_Name: treetrunk:Group20709
   m_TagString: Untagged
@@ -54,6 +55,7 @@ GameObject:
   - component: {fileID: 4674810616190056}
   - component: {fileID: 33650684780385530}
   - component: {fileID: 23669337216609814}
+  - component: {fileID: 64463391019939106}
   m_Layer: 0
   m_Name: foliage:Group7916
   m_TagString: Untagged
@@ -184,6 +186,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571270347502198}
   m_Mesh: {fileID: 4300002, guid: 6bb1b963135e6d341902e429db85d257, type: 3}
+--- !u!64 &64463391019939106
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571270347502198}
+  m_Material: {fileID: 13400000, guid: 14fa7a08094bd6642859c63cca9c1a62, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 6bb1b963135e6d341902e429db85d257, type: 3}
+--- !u!65 &65239661620786764
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143628770344722}
+  m_Material: {fileID: 13400000, guid: 14fa7a08094bd6642859c63cca9c1a62, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.003, y: 0.019327134, z: 0.003}
+  m_Center: {x: 0, y: 0.00959149, z: 0}
 --- !u!95 &95573711125422044
 Animator:
   serializedVersion: 3

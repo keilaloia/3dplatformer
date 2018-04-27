@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4516276823544598}
   - component: {fileID: 33386316222981760}
   - component: {fileID: 23296215041967144}
+  - component: {fileID: 64707462353639796}
   m_Layer: 0
   m_Name: pPyramid1
   m_TagString: Untagged
@@ -110,4 +111,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168288541088092}
+  m_Mesh: {fileID: 4300000, guid: c17986b605a335742a2fa3d9e7190573, type: 3}
+--- !u!64 &64707462353639796
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168288541088092}
+  m_Material: {fileID: 13400000, guid: 14fa7a08094bd6642859c63cca9c1a62, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c17986b605a335742a2fa3d9e7190573, type: 3}

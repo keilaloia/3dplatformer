@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,10 +42,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 988
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 9
+  controlID: 119
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -90,8 +90,8 @@ MonoBehaviour:
     y: 0
     width: 321
     height: 688
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -207,10 +207,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 988
-  m_MinSize: {x: 406, y: 492}
+  m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 10
+  controlID: 52
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -231,10 +231,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 688
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 11
+  controlID: 53
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -355,19 +355,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Scripts/KeilsCrap/POstProces
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/KeilsCrap/POstProces
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\s179132\Desktop\CaveBoy\3dplatformer
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d22a0000
-    m_LastClickedID: 10962
-    m_ExpandedIDs: 00000000d22a0000e02a0000882e0000702f00001631000044310000e231000082320000ae320000b06e0000b26e000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 298}
+    m_SelectedIDs: c8330000
+    m_LastClickedID: 13256
+    m_ExpandedIDs: 00000000d22a0000e02a00008a2e0000742f00001a31000048310000e631000088320000bc3200006e7000007070000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -395,7 +395,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d22a0000e02a0000882e0000702f00001631000044310000e231000082320000ae320000b06e0000b26e0000
+    m_ExpandedIDs: 00000000d22a0000e02a00008a2e0000742f00001a31000048310000e631000088320000bc3200006e70000070700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -477,7 +477,7 @@ MonoBehaviour:
     width: 387
     height: 967
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 1430.4551}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
@@ -512,10 +512,10 @@ MonoBehaviour:
     height: 667
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 566}
-    m_SelectedIDs: 
+    scrollPos: {x: 0, y: 80}
+    m_SelectedIDs: d8330000
     m_LastClickedID: 0
-    m_ExpandedIDs: 9cfbffff00000000
+    m_ExpandedIDs: 28fbffff9cfbffff000000002e350000ae360000ba3d00002a3f0000cc460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -566,14 +566,14 @@ MonoBehaviour:
     height: 667
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 356.69334866286613
+  lastFramingTime: 5270.420800226643
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -144.15826, y: 185.57707, z: -42.8098}
+    m_Target: {x: 240.56857, y: 43.5887, z: 88.52863}
     speed: 2
-    m_Value: {x: -144.15826, y: 185.57707, z: -42.8098}
+    m_Value: {x: 240.56857, y: 43.5887, z: 88.52863}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -597,13 +597,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.28932178, y: 0.1518254, z: -0.04653569, w: -0.9439685}
+    m_Target: {x: -0.13413778, y: 0.18281227, z: -0.02518696, w: -0.97362846}
     speed: 2
-    m_Value: {x: -0.28932178, y: 0.1518254, z: -0.04653569, w: -0.9439685}
+    m_Value: {x: -0.13413778, y: 0.18281227, z: -0.02518696, w: -0.97362846}
   m_Size:
-    m_Target: 9.089229
+    m_Target: 19.161646
     speed: 2
-    m_Value: 9.089229
+    m_Value: 19.161646
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
