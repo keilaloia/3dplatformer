@@ -21,20 +21,21 @@ public class Bomb : MonoBehaviour {
     public Transform RightHand;
     public Animator Anim;
 
-    [HideInInspector]
-    public bool test = false;
 
     private Camera cam;
     private float CurrentTimer;
     private bool reset = false;
+    [SerializeField]
     private bool isthrown = false;
     private bool throwButton = false;
     private Transform startingParent;
     private Rigidbody RB;
+    private Quaternion currentvalues;
+   
 
     private Movement movesingleton;
 
-    void Awake()
+    void Start()
     {
         Bomb.instance = this;
         
@@ -43,7 +44,8 @@ public class Bomb : MonoBehaviour {
         //CurrentTimer = respawnBombtimer;
 
         startingParent = transform.parent;
-
+        currentvalues = transform.rotation;
+       
     }
 
     public void ResetParent()
@@ -97,29 +99,29 @@ public class Bomb : MonoBehaviour {
             Instantiate(splat, mygameobject.transform.position, mygameobject.transform.rotation);
             DestroyObject(RB);
             MeshComponent.enabled = false;
-            test = true;
-            ResetValues();
+           
+            
+            mygameobject.transform.position = bombrespawn.position;
+            transform.parent = startingParent;
+            respawnBombtimer = CurrentTimer;
+            MeshComponent.enabled = true;
+            reset = false;
+            isthrown = false;
+            boom = false;
+            transform.rotation = currentvalues;
+            
 
+            movesingleton.BombThrown = false;
 
         }
     }
 
-    void ResetValues()
-    {
-        mygameobject.transform.position = bombrespawn.position;
-        transform.parent = startingParent;
-        respawnBombtimer = CurrentTimer;
-        MeshComponent.enabled = true;
-        reset = false;
-        isthrown = false;
-        boom = false;
-        movesingleton.BombThrown = false;
-    }
 
     //gonna be honest idk if this is actually doing anything but too scared too touch 
     public void BombArm()
     {
         boom = true;
+        Debug.Log("boom");
     }
 
     //void EndAnim()

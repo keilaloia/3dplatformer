@@ -131,7 +131,7 @@ public class Movement : MonoBehaviour
         anim.SetFloat("Speed", mDir.magnitude);
 
 
-       Debug.Log(mDir.magnitude);
+       //Debug.Log(mDir.magnitude);
     }
 
 
@@ -169,7 +169,6 @@ public class Movement : MonoBehaviour
             // anim.SetTrigger("IsGrounded");
             anim.applyRootMotion = true;
             //transform.position = childTransform.position;
-            //anim.SetBool("TouchGround", isGrounded);
             anim.SetTrigger("dojump");
             RB.velocity = new Vector3(RB.velocity.x, Mathf.Sqrt(-2.0f * Physics.gravity.y * JumpHeight), RB.velocity.z);
             //RB.drag = AirDrag;
@@ -178,13 +177,9 @@ public class Movement : MonoBehaviour
         //only added for physics jump delete if necesarry, to improve add bool for bjump check
         else if (!isGrounded)
         {
-            //anim.SetTrigger("IsGrounded");
             //anim.applyRootMotion = false;
-            //anim.SetBool("TouchGround", false);
 
             RB.AddForce(Physics.gravity * RB.mass * 3f, ForceMode.Acceleration);
-            // anim.SetTrigger("IsGrounded", isGrounded);
-
             //Debug.Log("being called");
         }
 
@@ -238,17 +233,9 @@ public class Movement : MonoBehaviour
     void EndOfThrow()
     {
        
-        //if(!Bomb.instance.gameObject.GetComponent<MeshRenderer>().enabled)
-        
             anim.SetTrigger("EndThrow");
             //BombThrown = false;
             Debug.Log("throwended");
-
-
-        
-
-
-
 
     }
 }

@@ -114,7 +114,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266625418421740}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: ffbcfb4bb6ec49249a8fba5864d80521, type: 3}
 --- !u!95 &95484593957447084
 Animator:
   serializedVersion: 3
@@ -166,11 +166,12 @@ MonoBehaviour:
   boom: 0
   bombForce: 5
   bombHeight: 5
+  playervelocitymultiplier: 1
   splat: {fileID: 1311589422176266, guid: da8407a61d981ec459ba6c141214732d, type: 2}
   Player: {fileID: 0}
   RightHand: {fileID: 0}
   Anim: {fileID: 0}
-  throwbomb: {fileID: 111478760671099152}
+  test: 0
 --- !u!135 &135027279837057050
 SphereCollider:
   m_ObjectHideFlags: 1
