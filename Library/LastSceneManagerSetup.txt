@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Joosh.unity
+- path: Assets/Scene/Joosh 1.unity
   isLoaded: 1
   isActive: 1
