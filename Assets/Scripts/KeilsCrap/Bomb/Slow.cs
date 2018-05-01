@@ -8,6 +8,8 @@ public class Slow : MonoBehaviour {
     private float currentwalkspeed;
     private float currentTimer;
     private float Timer = 5f;
+
+    private bool Triggered = false;
     
     void Awake()
     {
@@ -19,15 +21,19 @@ public class Slow : MonoBehaviour {
     }
     void Update()
     {
-        Timer -= Time.deltaTime;
-        if(Timer <= 0)
+        if(Triggered)
         {
+            Timer -= Time.deltaTime;
+            if (Timer <= 0)
+            {
 
-            DestroyObject(this.gameObject);
-            movesingleton.MaxwSpeed = currentwalkspeed;
-            
-            Debug.Log("destroy");
+                DestroyObject(this.gameObject);
+                movesingleton.MaxwSpeed = currentwalkspeed;
+
+                Debug.Log("destroy");
+            }
         }
+        
     }
     void OnTriggerEnter(Collider other)
     {
@@ -36,6 +42,8 @@ public class Slow : MonoBehaviour {
         if (other.tag == "Player")
         {
             movesingleton.MaxwSpeed = 5;
+            Triggered = true;
+
         }
 
     }
@@ -43,6 +51,7 @@ public class Slow : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         movesingleton.MaxwSpeed = currentwalkspeed;
+        Triggered = false;
     }
    
 }

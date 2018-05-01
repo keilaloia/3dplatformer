@@ -6,42 +6,44 @@ public class WaterSlow : MonoBehaviour {
 
     private Movement movesingleton;
     private float currentwalkspeed;
-    private float currentTimer;
-    private float Timer = 5f;
 
-    void Awake()
+    void Start()
     {
 
         movesingleton = Movement.instance.GetComponent<Movement>();
         currentwalkspeed = movesingleton.MaxwSpeed;
-        currentTimer = Timer;
+
 
     }
-    void Update()
-    {
-        Timer -= Time.deltaTime;
-        if (Timer <= 0)
-        {
 
-            Debug.Log("tick of health");
-            movesingleton.MaxwSpeed = currentwalkspeed;
-
-           
-        }
-    }
     void OnTriggerEnter(Collider other)
     {
 
         //Debug.Log("derp");
-        if (other.tag == "Player")
+        if (other.gameObject.layer == 10)
         {
+            Debug.Log("entertrigger");
             movesingleton.MaxwSpeed = 5;
         }
 
     }
+    void OnTriggerStay(Collider other)
+    {
 
+        //Debug.Log("derp");
+        if (other.gameObject.layer == 10)
+        {
+            Debug.Log("Stay");
+            movesingleton.MaxwSpeed = 3;
+           
+
+        }
+
+    }
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("Exittrigger");
+
         movesingleton.MaxwSpeed = currentwalkspeed;
     }
 }

@@ -13,14 +13,36 @@ public class PlayerStats : MonoBehaviour {
     [HideInInspector]
     public int currentHealth;
 
+    [HideInInspector]
+    public bool Damaged;
+
+    [HideInInspector]
+    public bool heal;
 
     private float startTime;
     private bool HeartShow = false;
     private bool heartsCheck = false;
-    
-	// Use this for initialization
-	void Awake ()
+
+    private static PlayerStats _Instance;
+    public static PlayerStats instance
     {
+        get
+        {
+            return _Instance;
+        }
+    }
+    // Use this for initialization
+    void Awake ()
+    {
+
+        if (_Instance == null)
+        {
+            _Instance = this;
+        }
+        else
+            Destroy(gameObject);
+
+
         startTime = uiTimer;
         currentHealth = maxHealth;
 	}
@@ -28,29 +50,23 @@ public class PlayerStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
         //timer constantly checks to see if our player has been attacked and shows ui only if been attacked and turns it back off once ui check is over. it leaves health up if player is missing health
         Timer();
 
-        
-        
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if(currentHealth <= 0)
         {
-            heartsCheck = true;
-            uiTimer = startTime;
-            currentHealth -= 1;
-            
-            Debug.Log("keyleftcheck");
-            //Debug.Log(currentHealth);
+            LoadLevel("Restart");
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            heartsCheck = true;
-            uiTimer = startTime;
-            currentHealth += 1;
-            Debug.Log("keyRightcheck");
-           // Debug.Log(currentHealth);
-          
-        }
+        //GainHealth();
+
+        //LoseHealth();
+
 
         //Debug.Log(uiTimer);
     }
@@ -82,5 +98,34 @@ public class PlayerStats : MonoBehaviour {
             MyHearts.SetBool("show", HeartShow);
            // Debug.Log("truebool");
         }
+    }
+    //access these 2 methods from any script to take damage or gain health
+
+    public void GainHealth()
+    {
+            heartsCheck = true;
+            uiTimer = startTime;
+            currentHealth += 1;
+            Debug.Log("keyRightcheck");
+            // Debug.Log(currentHealth);
+
+    }
+    public void LoseHealth()
+    {
+
+            heartsCheck = true;
+            uiTimer = startTime;
+            currentHealth -= 1;
+
+            
+            //Debug.Log(currentHealth);
+        
+    }
+
+    public void LoadLevel(string name)
+    {
+        Debug.Log(" level load request for: " + name);
+
+        Application.LoadLevel(name);
     }
 }
