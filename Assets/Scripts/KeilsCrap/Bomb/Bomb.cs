@@ -73,6 +73,7 @@ public class Bomb : MonoBehaviour {
    public void ThrowBomb()
     {
         bombFlash.SetTrigger("startTimer");
+
         transform.parent = null;
         RB = mygameobject.AddComponent<Rigidbody>();
         RB.AddForce(Player.transform.up * (Mathf.Sqrt(-2.0f * Physics.gravity.y * bombHeight)), ForceMode.Impulse  );
@@ -90,7 +91,10 @@ public class Bomb : MonoBehaviour {
 
     }
 
+    void DropBomb()
+    {
 
+    }
     void ResetBomb()
     {
      

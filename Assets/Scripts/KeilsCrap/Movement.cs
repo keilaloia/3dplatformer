@@ -11,6 +11,7 @@ using Cinemachine;
 
 public class Movement : MonoBehaviour
 {
+
     public float MaxwSpeed;
     public float ZerotoMax;
     public float MaxtoZero;
@@ -42,6 +43,7 @@ public class Movement : MonoBehaviour
     private Camera cam;
     private Vector3 Direction;
     //singleton creation
+
     private static Movement _Instance;
     public static Movement instance
     {
@@ -89,6 +91,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
+       
         //keyboard
         //Jumpstuff(Input.GetButtonDown("kJump"));
 
@@ -122,6 +125,7 @@ public class Movement : MonoBehaviour
 
         mDir = (cam.transform.right * H) + (Direction * V);
      
+       
 
         //main methods making game work      
         Turning(mDir.normalized);
@@ -224,6 +228,19 @@ public class Movement : MonoBehaviour
 
     }
 
+    public void DropBomb(bool bDrop)
+    {
+        Bomb.instance.ResetParent();
+        if (bDrop)
+        {
+
+            Bomb.instance.ParentHand();
+           
+            BombThrown = true;
+        }
+
+    }
+
     public void ThrowIntermediary()
     {
         Bomb.instance.ShouldThrow();
@@ -238,4 +255,34 @@ public class Movement : MonoBehaviour
             Debug.Log("throwended");
 
     }
+
+    //public void StartMenu(bool bHam)
+    //{
+    //    if(bHam)
+    //    {
+    //        if(GameIsPaused)
+    //        {
+    //            Resume();
+    //        }
+    //        else
+    //        {
+    //            Pause();
+    //        }
+    //    }
+    //}
+
+    //void Resume()
+    //{
+    //    PauseMenu.SetActive(false);
+    //    Time.timeScale = 1f;
+    //    GameIsPaused = false;
+
+    //}
+
+    //void Pause()
+    //{
+    //    PauseMenu.SetActive(true);
+    //    Time.timeScale = 0f;
+    //    GameIsPaused = true;
+    //}
 }
