@@ -47,6 +47,10 @@ public class levelManager : MonoBehaviour
     {
         //Menu
         StartMenu(Input.GetButtonDown("Hamburger"));
+        if(Input.GetButton("buttonThrow"))
+        {
+            Resume();
+        }
     }
 
     public void SetResolution (int resoltuionIndex)
