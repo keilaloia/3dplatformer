@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4965002663635416}
+  - component: {fileID: 208539337880099850}
   m_Layer: 0
   m_Name: stump
   m_TagString: Untagged
@@ -124,3 +125,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3924663, y: 1.3267682, z: 1.4267578}
   m_Center: {x: 7.103999, y: 0.65418, z: -6.040197}
+--- !u!208 &208539337880099850
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730082746312208}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 1.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 7, y: 0, z: -5.5}
+  m_TimeToStationary: 0.5

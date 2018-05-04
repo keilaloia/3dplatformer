@@ -36,8 +36,8 @@ public class WayPoints : MonoBehaviour {
         if (dir.magnitude <= PointReached)
         {
 
-            //index++;
-            index = Random.Range(0, WayPointHolder.points.Length);
+            index++;
+            //index = Random.Range(0, WayPointHolder.points.Length);
 
 
             if (index >= wayPoint.Length)

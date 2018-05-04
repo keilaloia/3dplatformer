@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23185656036969886}
   - component: {fileID: 95516962821968378}
   - component: {fileID: 64931398506162246}
+  - component: {fileID: 208825874748283962}
   m_Layer: 0
   m_Name: obj_barrel (1)
   m_TagString: Untagged
@@ -115,3 +116,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!208 &208825874748283962
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579290138911314}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 42.612003, y: 66.038, z: 42.612003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 66.038, z: 0}
+  m_TimeToStationary: 0.5

@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4898255008456568}
   - component: {fileID: 95982585303584144}
+  - component: {fileID: 208928504185958420}
   m_Layer: 0
   m_Name: tree_3 1
   m_TagString: Untagged
@@ -428,3 +429,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.011
   m_Center: {x: -0.0003083227, y: 0.030627077, z: 0.0533272}
+--- !u!208 &208928504185958420
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756169717884944}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.015, y: 0.005, z: 0.015}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
