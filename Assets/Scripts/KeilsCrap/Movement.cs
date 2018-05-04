@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     public GameObject PlayerMesh;
     public Animator anim;
     public Transform childTransform;
+    public AudioSource Footsteps;
 
     [HideInInspector]
     public bool BombThrown = false;
@@ -134,6 +135,7 @@ public class Movement : MonoBehaviour
         //set up animations
         anim.SetFloat("Speed", mDir.magnitude);
 
+       
 
        //Debug.Log(mDir.magnitude);
     }
@@ -150,7 +152,6 @@ public class Movement : MonoBehaviour
             fVelocity += AccelRatePerSec * Time.deltaTime;
             fVelocity = Mathf.Min(fVelocity, MaxwSpeed);  
             RB.velocity = move;
-
         }
         else
         {
