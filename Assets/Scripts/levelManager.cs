@@ -5,17 +5,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class levelManager : MonoBehaviour
 {
     public AudioMixer audioMixer;
 
     public Dropdown resolutionDropdown;
-
+    public EventSystem myevent;
     Resolution[] resolution;
 
     public static bool GameIsPaused = false;
     public GameObject PauseMenu;
+    public GameObject resume;
 
 
     void Start()
@@ -98,6 +100,7 @@ public class levelManager : MonoBehaviour
     {
         if (bHam)
         {
+            
             if (GameIsPaused)
             {
                 Resume();
@@ -105,6 +108,7 @@ public class levelManager : MonoBehaviour
             else
             {
                 Pause();
+                myevent.SetSelectedGameObject(resume);
             }
         }
     }

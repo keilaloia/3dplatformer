@@ -74,9 +74,7 @@ public class Poison : MonoBehaviour {
 
     void losehealth()
     {
-            Timer = currentTimer;
-
-        // movesingleton.MaxwSpeed = currentwalkspeed;
+        Timer = currentTimer;      
         statsinstance.LoseHealth();
     }
 }

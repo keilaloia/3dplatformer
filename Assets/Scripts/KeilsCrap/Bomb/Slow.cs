@@ -21,8 +21,6 @@ public class Slow : MonoBehaviour {
     }
     void Update()
     {
-        if(Triggered)
-        {
             Timer -= Time.deltaTime;
             if (Timer <= 0)
             {
@@ -32,7 +30,7 @@ public class Slow : MonoBehaviour {
 
                 Debug.Log("destroy");
             }
-        }
+        
         
     }
     void OnTriggerEnter(Collider other)
@@ -42,7 +40,7 @@ public class Slow : MonoBehaviour {
         if (other.tag == "Player")
         {
             movesingleton.MaxwSpeed = 5;
-            Triggered = true;
+            
 
         }
 
@@ -51,7 +49,7 @@ public class Slow : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         movesingleton.MaxwSpeed = currentwalkspeed;
-        Triggered = false;
+        
     }
    
 }

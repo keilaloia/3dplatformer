@@ -24,10 +24,14 @@ public class Movement : MonoBehaviour
     public Transform childTransform;
     public AudioSource Footsteps;
 
+
     [HideInInspector]
     public bool BombThrown = false;
     [HideInInspector]
     public Rigidbody RB;
+
+    [HideInInspector]
+    public bool IsAttacking = false;
 
     private Vector3 mDir;
     private Vector3 KmDir;
@@ -45,6 +49,7 @@ public class Movement : MonoBehaviour
     private Vector3 Direction;
     //singleton creation
 
+    private bool testtrigger;
     private static Movement _Instance;
     public static Movement instance
     {
@@ -87,7 +92,8 @@ public class Movement : MonoBehaviour
         decelRatePerSec = -MaxwSpeed / MaxtoZero;
         fVelocity = 5f;
 
-        
+
+
     }
     void Update()
     {
@@ -105,6 +111,18 @@ public class Movement : MonoBehaviour
         }
 
         anim.SetBool("IsGrounded", isGrounded);
+        // anim.SetTrigger("FallWave", fallingBridge.instance.isfalling);
+
+        anim.SetBool("Falling", fallingBridge.instance.isfalling);
+        //if(testtrigger)
+        //{
+        //    for (int count = 1; count <= 5; count++)
+        //    {
+        //        testwave.Play(waveanim.name);
+        //    }
+        //    testwave.Stop(waveanim.name);
+        //    testtrigger = false;
+        //}
     }
 
     void FixedUpdate()
@@ -257,33 +275,15 @@ public class Movement : MonoBehaviour
 
     }
 
-    //public void StartMenu(bool bHam)
-    //{
-    //    if(bHam)
-    //    {
-    //        if(GameIsPaused)
-    //        {
-    //            Resume();
-    //        }
-    //        else
-    //        {
-    //            Pause();
-    //        }
-    //    }
-    //}
+    void StartAttack()
+    {
+        IsAttacking = true;
+       
+    }
 
-    //void Resume()
-    //{
-    //    PauseMenu.SetActive(false);
-    //    Time.timeScale = 1f;
-    //    GameIsPaused = false;
-
-    //}
-
-    //void Pause()
-    //{
-    //    PauseMenu.SetActive(true);
-    //    Time.timeScale = 0f;
-    //    GameIsPaused = true;
-    //}
+    void EndAttack()
+    {
+        IsAttacking = false;
+     
+    }
 }
