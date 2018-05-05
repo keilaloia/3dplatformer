@@ -26,4 +26,9 @@ MonoBehaviour:
     m_To: CM FreeLook1
     m_Blend:
       m_Style: 1
-      m_Time: 1
+      m_Time: 0.2
+  - m_From: '**ANY CAMERA**'
+    m_To: idle
+    m_Blend:
+      m_Style: 1
+      m_Time: 2

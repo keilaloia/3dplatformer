@@ -114,15 +114,25 @@ public class Movement : MonoBehaviour
         // anim.SetTrigger("FallWave", fallingBridge.instance.isfalling);
 
         anim.SetBool("Falling", fallingBridge.instance.isfalling);
-        //if(testtrigger)
+        //anim.SetFloat("Xnothing", Input.GetAxis("RightJoyX"));
+        //anim.SetFloat("Ynothing", Input.GetAxis("RightJoyY"));
+
+        //if((Input.GetAxis("RightJoyX") == 0f))
         //{
-        //    for (int count = 1; count <= 5; count++)
-        //    {
-        //        testwave.Play(waveanim.name);
-        //    }
-        //    testwave.Stop(waveanim.name);
-        //    testtrigger = false;
+        //    anim.SetBool("Xnothing", true);
         //}
+        //if ((Input.GetAxis("RightJoyY") == 0f))
+        //{
+        //    anim.SetBool("Ynothing", true);
+        //}
+        //else
+        //{
+        //    anim.SetBool("Xnothing", false);
+        //    anim.SetBool("Ynothing", false);
+        //}
+
+
+
     }
 
     void FixedUpdate()
