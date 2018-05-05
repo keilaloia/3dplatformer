@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 4168318214798722}
   - component: {fileID: 33911318294776136}
   - component: {fileID: 136735563995659780}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,6 +984,8 @@ GameObject:
   - component: {fileID: 82532305929224184}
   - component: {fileID: 195698351841739758}
   - component: {fileID: 114545120589899456}
+  - component: {fileID: 65470594035845232}
+  - component: {fileID: 114909709294255634}
   m_Layer: 0
   m_Name: bug_normal_test_06 1 (1)
   m_TagString: Untagged
@@ -1807,8 +1809,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1776703042536988}
   m_LocalRotation: {x: -0, y: 0.7126737, z: -0, w: 0.7014957}
-  m_LocalPosition: {x: -23.29, y: 0.23, z: 46.99}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 366.063, y: 32.741257, z: 112.34}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 4168318214798722}
   - {fileID: 4776990677334690}
@@ -2521,6 +2523,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65470594035845232
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1776703042536988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015, y: 0.02, z: 0.015}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82532305929224184
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2588,7 +2602,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2636,6 +2650,20 @@ MonoBehaviour:
   eyes: {fileID: 4168318214798722}
   Alert: {fileID: 0}
   NavSpeed: 2.5
+  HeightOffset: {x: 0, y: 0.5, z: 0}
+  distance: 1
+--- !u!114 &114909709294255634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1776703042536988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c47ca04667f034492f6ec5821adda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!136 &136735563995659780
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3471,7 +3499,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.008
-  m_Speed: 3.5
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

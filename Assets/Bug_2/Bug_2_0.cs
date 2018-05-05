@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Bug_2_0 : MonoBehaviour
 {
-
+    //Arturo code
     public GameObject Player;
     public AudioClip[] FootSteps;
     public Transform eyes;
     public AudioSource Alert;
     public float NavSpeed;
+    public Vector3 HeightOffset = new Vector3(0,.5f,0);
+
+    public float distance =1;
 
     NavMeshAgent nav;
     AudioSource sounds;
@@ -21,8 +24,9 @@ public class Bug_2_0 : MonoBehaviour
     float Wait;
     bool Alerted = false;
     float AlertRange = 20;
-
-
+    float dis;
+    float Timer = 2f;
+    float currentTimer;
     // Use this for initialization
     void Start()
     {
@@ -33,12 +37,32 @@ public class Bug_2_0 : MonoBehaviour
 
         nav.speed = NavSpeed;
         anim.speed = 1f;
-
+        currentTimer = Timer;
     }
 
     // Update is called once per frame
     void Update()
     {
+        RaycastHit Rhit;
+
+        Ray rDir = new Ray(transform.position + HeightOffset, transform.forward);
+        Debug.DrawRay(transform.position + HeightOffset, transform.forward * distance, Color.black);
+
+        dis = Vector3.Distance(transform.position, Player.transform.position);
+        if (Physics.Raycast(rDir, out Rhit, distance))
+        {
+            if ((Rhit.transform.tag == "Player"))
+                Timer -= Time.deltaTime;
+            if (Timer <= 0)
+            {
+                PlayerStats.instance.LoseHealth();
+                Timer = currentTimer;
+                Debug.Log("fuck");
+
+            }
+
+        }
+
 
         Debug.DrawLine(eyes.position, Player.transform.position,Color.blue); 
         // CHECKS IF ITS ALVE  
@@ -82,7 +106,6 @@ public class Bug_2_0 : MonoBehaviour
             {
                 nav.destination = Player.transform.position;
 
-                float dis = Vector3.Distance(transform.position, Player.transform.position);
                 if (dis > 10f)
                 {
                     state = "Hunt";
@@ -101,9 +124,12 @@ public class Bug_2_0 : MonoBehaviour
                         //deathCam.transform.position = Camera.main.transform.position;
                         //deathCam.transform.rotation = Camera.main.transform.rotation;
                         //Camera.main.gameObject.SetActive(false);
+                        
+
                         Alert.pitch = 0.7f;
                         Alert.Play();
                         Invoke("reset", 1f);
+                 
                     }
 
                 }
@@ -118,7 +144,7 @@ public class Bug_2_0 : MonoBehaviour
                     Wait = 5f;
                     Alerted = true;
                     AlertRange = 5f;
-                    eyeballCheck();
+                    //eyeballCheck();
 
                 }
 
@@ -130,6 +156,9 @@ public class Bug_2_0 : MonoBehaviour
                 //deathCam.transform.rotation = Quaternion.Slerp(deathCam.transform.rotation, camPos.rotation, 10f * Time.deltaTime);
                 anim.speed = 1f;
                 nav.SetDestination(Player.transform.position);
+                Debug.Log("called");
+
+               
             }
 
             //nav.SetDestination(Player.transform.position);       
@@ -146,35 +175,35 @@ public class Bug_2_0 : MonoBehaviour
 
     }
 
-    public void eyeballCheck()
-    {
+    //public void eyeballCheck()
+    //{
 
-        if (Alive)
-        {
+    //    if (Alive)
+    //    {
 
-            RaycastHit rayHit;
-            if (Physics.Linecast(eyes.position, Player.transform.position, out rayHit))
-            {
+    //        RaycastHit rayHit;
+    //        if (Physics.Linecast(eyes.position, Player.transform.position, out rayHit))
+    //        {
             
-                print("hit:" + rayHit.collider.gameObject.name);
-                if (/*rayHit.collider.gameObject.layer == 10 &&*/ rayHit.collider.gameObject.name == "Player")
-                {
-                    if (state != "Kill")
-                    {
-                        state = "Chase";
-                        nav.speed = 3.5f;
-                        anim.speed = 2.2f;
+    //            print("hit:" + rayHit.collider.gameObject.name);
+    //            if (/*rayHit.collider.gameObject.layer == 10 &&*/ rayHit.collider.gameObject.tag == "Player")
+    //            {
+    //                if (state != "Kill")
+    //                {
+    //                    state = "Chase";
+    //                    nav.speed = 3.5f;
+    //                    anim.speed = 2.2f;
  
-                        Alert.Play();
+    //                    Alert.Play();
 
-                    }
-                }
+    //                }
+    //            }
                 
-            }
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
     void reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -189,5 +218,19 @@ public class Bug_2_0 : MonoBehaviour
        
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (state != "Kill")
+            {
+                state = "Chase";
+                nav.speed = 3.5f;
+                anim.speed = 2.2f;
 
+                Alert.Play();
+
+            }
+        }
+    }
 }

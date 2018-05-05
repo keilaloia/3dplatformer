@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33155140756453736}
   - component: {fileID: 23680004547895692}
   - component: {fileID: 65358460495674090}
-  - component: {fileID: 114704159376466186}
+  - component: {fileID: 114738771652778324}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -66,14 +66,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980533736552810}
-  m_LocalRotation: {x: -0, y: -0.40397078, z: -0, w: 0.9147719}
-  m_LocalPosition: {x: 91.8286, y: -76.004166, z: -102.93558}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0, y: 0.013404081, z: -0, w: 0.99991024}
+  m_LocalPosition: {x: 85.87, y: 156.2, z: 123}
+  m_LocalScale: {x: 200, y: 200, z: 238.24954}
   m_Children:
   - {fileID: 4405218859570980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -47.653004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.536, z: 0}
 --- !u!23 &23680004547895692
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -128,7 +128,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019869119, y: 0.019803418, z: 0.005}
   m_Center: {x: 0, y: 0.0000005373731, z: 0}
---- !u!114 &114704159376466186
+--- !u!114 &114738771652778324
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -136,10 +136,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1980533736552810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c2a518a5016144bb961a0185a3dbfc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7619bcb99f9391c49927551ba398d0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coin: {fileID: 1980533736552810}
+  collect: {fileID: 0}
 --- !u!198 &198731868806813918
 ParticleSystem:
   m_ObjectHideFlags: 1

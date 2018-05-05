@@ -7,22 +7,14 @@ public class AddScore : MonoBehaviour {
     public GameObject Coin;
     int point;
     Score score;
+    public AudioSource collect;
 
-	void Start ()
+
+    void Start ()
     {
         point = 1;
 	}
-    private void OnCollisionEnter(Collision whatHitMe)
-    {
-        if (whatHitMe.gameObject.CompareTag("Player"))
-        {
-            Score.score += point;
-
-            DestroyObject(Coin);
-        }
-
-    }
-    //private void OnTriggerEnter(Collider whatHitMe)
+    //private void OnCollisionEnter(Collision whatHitMe)
     //{
     //    if (whatHitMe.gameObject.CompareTag("Player"))
     //    {
@@ -30,7 +22,17 @@ public class AddScore : MonoBehaviour {
 
     //        DestroyObject(Coin);
     //    }
+
     //}
+    private void OnTriggerEnter(Collider whatHitMe)
+    {
+        if (whatHitMe.gameObject.CompareTag("Player"))
+        {
+            Score.score += point;
+            collect.Play();
+            DestroyObject(Coin);
+        }
+    }
 
 
     void FixedUpdate ()

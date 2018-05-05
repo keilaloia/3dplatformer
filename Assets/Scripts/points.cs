@@ -86,6 +86,7 @@ public class points : MonoBehaviour {
         if (other.gameObject == Player)
         {
             Player.transform.parent = transform;
+            //Player.transform.localScale = new Vector3(1, 1, 1);
         }
     }
     private void OnTriggerExit(Collider other)
