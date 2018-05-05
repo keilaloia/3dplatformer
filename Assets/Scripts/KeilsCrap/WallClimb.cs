@@ -89,7 +89,7 @@ public class WallClimb : MonoBehaviour {
         {
             Angle = Vector3.Angle(Fhit.normal, transform.forward);
             //Angle = Vector3.Angle(Rhit.point, Fhit.point);
-            if (/*Angle > 150f && */Fhit.collider.gameObject.layer == 8)
+            if ( Angle > 150f && Fhit.collider.gameObject.layer == 8)
             {
                 Climbable = true;
             }
@@ -121,8 +121,8 @@ public class WallClimb : MonoBehaviour {
                 RB.velocity = move * cSpeed;
                 RB.useGravity = false;
             /////////////////////////////////////////////////////////////////////
-               // transform.eulerAngles = verticalmesh.transform.eulerAngles;
-                Mathf.Clamp( verticalmesh.transform.eulerAngles.y , -150f, -180f);
+                transform.eulerAngles = verticalmesh.transform.eulerAngles;
+                Mathf.Clamp(transform.eulerAngles.y , -150f, -180f);
             
        
 
