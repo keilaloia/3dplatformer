@@ -155,8 +155,9 @@ public class Bug_2_0 : MonoBehaviour
             RaycastHit rayHit;
             if (Physics.Linecast(eyes.position, Player.transform.position, out rayHit))
             {
-                print("hit" + rayHit.collider.gameObject.name);
-                if (rayHit.collider.gameObject.name == "Player")
+            
+                print("hit:" + rayHit.collider.gameObject.name);
+                if (/*rayHit.collider.gameObject.layer == 10 &&*/ rayHit.collider.gameObject.name == "Player")
                 {
                     if (state != "Kill")
                     {
@@ -168,7 +169,7 @@ public class Bug_2_0 : MonoBehaviour
 
                     }
                 }
-
+                
             }
 
         }

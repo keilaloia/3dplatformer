@@ -10,6 +10,7 @@ public class Mother : MonoBehaviour {
     public bool[] IsGreen;
     public Material[] material;
     public Renderer[] rend;
+    public GameObject MoveP;
 
     public GameObject[] remove;
 
@@ -104,6 +105,11 @@ public class Mother : MonoBehaviour {
         {
             IsFinished = true;
 
+        }
+
+        if (IsFinished == true)
+        {
+            MoveP.SetActive(true);
         }
     }
 }

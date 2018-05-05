@@ -58,7 +58,7 @@ public class Cri_CritterBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		lifeTime -= Time.deltaTime;
+		//lifeTime -= Time.deltaTime;
 		if (lifeTime < 0) {
 			myState = 3;
 			justChangedStates = true;

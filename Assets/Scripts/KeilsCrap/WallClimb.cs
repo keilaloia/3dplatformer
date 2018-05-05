@@ -122,7 +122,7 @@ public class WallClimb : MonoBehaviour {
                 RB.useGravity = false;
             /////////////////////////////////////////////////////////////////////
                // transform.eulerAngles = verticalmesh.transform.eulerAngles;
-                Mathf.Clamp( 170 /*transform.eulerAngles.y 170f works better with the number 170*/, -150f, -180f);
+                Mathf.Clamp( verticalmesh.transform.eulerAngles.y , -150f, -180f);
             
        
 
