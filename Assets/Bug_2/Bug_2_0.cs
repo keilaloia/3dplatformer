@@ -25,7 +25,7 @@ public class Bug_2_0 : MonoBehaviour
     bool Alerted = false;
     float AlertRange = 20;
     float dis;
-    float Timer = 2f;
+    float Timer = 1f;
     float currentTimer;
     // Use this for initialization
     void Start()

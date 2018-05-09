@@ -16,7 +16,7 @@ public class Portal : MonoBehaviour {
         
         if(other.tag == "Player")
         {
-            LoadLevel("Restart");
+            LoadLevel("death");
         }
 
     }

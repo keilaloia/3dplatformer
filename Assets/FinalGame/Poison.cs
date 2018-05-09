@@ -8,7 +8,7 @@ public class Poison : MonoBehaviour {
     private PlayerStats statsinstance;
     private float currentwalkspeed;
     private float currentTimer;
-    private float Timer = 5f;
+    private float Timer = 3f;
 
     private bool inPoison = false;
     void Start()
