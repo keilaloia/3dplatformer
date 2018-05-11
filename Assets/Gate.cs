@@ -8,13 +8,22 @@ public class Gate : MonoBehaviour {
 
 	void Start ()
     {
-        gate.SetActive(true);	
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision whatHitMe)
     {
-        gate.SetActive(false);
+        if (whatHitMe.gameObject.CompareTag("Player"))
+        {
+            gate.SetActive(false);
+            Destroy(this.gameObject);
+        }
     }
+
+    void FixedUpdate()
+    {
+        transform.Rotate(Vector3.forward * Time.deltaTime * 80);
+    }
+
     void Update () {
 		
 	}
