@@ -19,6 +19,9 @@ public class levelManager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject resume;
 
+    public GameObject berryuUI;
+    public GameObject coinUI;
+
 
     void Start()
     {
@@ -118,6 +121,8 @@ public class levelManager : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        berryuUI.SetActive(true);
+        coinUI.SetActive(true);
 
     }
 
@@ -126,5 +131,7 @@ public class levelManager : MonoBehaviour
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        berryuUI.SetActive(false);
+        coinUI.SetActive(false);
     }
 }
