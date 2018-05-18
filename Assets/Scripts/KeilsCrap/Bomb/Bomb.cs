@@ -56,7 +56,6 @@ public class Bomb : MonoBehaviour {
    {
         transform.parent = RightHand;
         transform.position = RightHand.position;
-
    }
    public void ShouldThrow()
     {
@@ -66,7 +65,7 @@ public class Bomb : MonoBehaviour {
         }
         else if (isthrown)
         {
-            Debug.Log(" do nothing");
+            Debug.Log("do nothing");
         }
     }
 
@@ -84,15 +83,19 @@ public class Bomb : MonoBehaviour {
     }
 
     // Update is called once per frame
-
     void Update()
     {
         ResetBomb();
 
     }
 
-    void DropBomb()
+    public void HoneyDrop()
     {
+        bombFlash.SetTrigger("startTimer");
+        RB = mygameobject.AddComponent<Rigidbody>();
+        RB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+        transform.parent = null;     
+        isthrown = true;
 
     }
     void ResetBomb()
@@ -127,15 +130,5 @@ public class Bomb : MonoBehaviour {
         boom = true;
         Debug.Log("boom");
     }
-
-    //void EndAnim()
-    //{
-    //    Debug.Log("called");
-    //    if(movesingleton.ThrowEnded == true)
-    //    {
-    //        transform.parent = null;
-    //        //movesingleton.ThrowEnded 
-    //    }
-    //}
 
 }

@@ -1,7 +1,5 @@
 WindowsStandalone
 SceneListBegin?
-Assets/Scene/Start.unity
-Assets/Scene/Joosh1.unity
 Assets/Scene/death.unity
 SceneListEnd?
 3464fb8ed7eb076e95475d481e445e06 Assembly-CSharp.dll:.Bomb
@@ -137,7 +135,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 dca777389c8dc1ef6bdf46f33bd50859 Assembly-CSharp.dll:.CameraSingleTon
 a6323024b11268bdae40979953bd45a1 Assembly-CSharp.dll:.Gate
 acbc5cb550fd73551fc3f7462a1c830c Assembly-CSharp.dll:Cinemachine.NoiseSettings
-7d93f78416b75ec4e099a4c3dd0a0160 Assembly-CSharp.dll:.levelManager
+d842e33ab7e9e6f9844bdfdecc896fdc Assembly-CSharp.dll:.levelManager
 e31efcfa61a2329dea76b93867320cc6 Assembly-CSharp.dll:.Cri_ContinuousPrefabGenerator
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker

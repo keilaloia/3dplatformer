@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/Start.unity
     guid: 1964639f98497254a8017f40efd69c1c
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scene/jooshBackup.unity
+    guid: 1a5001944e44bac4283619dd4b6167ab
+  - enabled: 0
     path: Assets/Scene/Joosh1.unity
     guid: 2f85db2c4ac1549468da2ff84cc4bd10
   - enabled: 1
