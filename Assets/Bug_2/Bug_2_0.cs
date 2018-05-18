@@ -21,6 +21,7 @@ public class Bug_2_0 : MonoBehaviour
     AudioSource sounds;
     Animator anim;
     Health PlayerHealth;
+    PlayerStats statins;
 
     string state = "idle";
     bool Alive = true;
@@ -28,7 +29,8 @@ public class Bug_2_0 : MonoBehaviour
     bool Alerted = false;
     float AlertRange = 20;
     bool inRangeForAttack;
-    float time;
+    //float time;
+    //float ctime;
 
 
     // Use this for initialization
@@ -39,8 +41,10 @@ public class Bug_2_0 : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         sounds = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+        statins = PlayerStats.instance.GetComponent<PlayerStats>();
         nav.speed = NavSpeed;
         anim.speed = 1f;
+        //ctime = time; 
         PlayerHealth = Player.GetComponent<Health>();
 
 
@@ -142,16 +146,7 @@ public class Bug_2_0 : MonoBehaviour
                 //deathCam.transform.rotation = Quaternion.Slerp(deathCam.transform.rotation, camPos.rotation, 10f * Time.deltaTime);
                 anim.speed = 1f;
                 nav.SetDestination(Target.position);
-
-                time += Time.deltaTime;
-
-                if (time >= TimeBetweenAttacks && inRangeForAttack) { Attack(); }
-
-                if (PlayerHealth.curentHealth <= 0)
-                {
-                    // death animathion
-
-                }
+             
                 
             }
 
@@ -212,36 +207,30 @@ public class Bug_2_0 : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider col)
-    {
+    //void OnTriggerEnter(Collider col)
+    //{
 
-        if (col.gameObject == Player)
-        {
-            inRangeForAttack = true;
-        }
+    //    if (col.gameObject.layer == 10)
+    //    {
+    //        inRangeForAttack = true;
+    //    }
 
-    }
+    //}
 
-    void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject == Player)
-        {
-            inRangeForAttack = false;
-        }
-    }
+    //void OnTriggerExit(Collider col)
+    //{
+    //    if (col.gameObject.layer == 10)
+    //    {
+    //        inRangeForAttack = false;
+    //    }
+    //}
 
-    void Attack()
-    {
+    //void Attack()
+    //{
 
-        time = 0;
-
-        if (PlayerHealth.curentHealth > 0)
-        {
-
-            PlayerHealth.takeDamage(Damage);
-
-        }
+    //    time = ctime;
+    //    statins.LoseHealth();
 
 
-    }
+    //}
 }

@@ -1,0 +1,272 @@
+fileFormatVersion: 2
+guid: fc79c0ee35b573843a00b381f65c6fd6
+timeCreated: 1521156718
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: cave_boi_back_cloth_RetopoGroup3
+    100004: hair
+    100006: polySurface1
+    100008: polySurface18
+    100010: polySurface19
+    100012: polySurface2
+    100014: polySurface20
+    100016: polySurface21
+    100018: polySurface22
+    100020: polySurface23
+    100022: polySurface24
+    100024: polySurface25
+    100026: polySurface26
+    100028: polySurface27
+    100030: polySurface28
+    100032: polySurface29
+    100034: polySurface30
+    100036: polySurface31
+    100038: polySurface32
+    100040: polySurface33
+    100042: polySurface34
+    100044: polySurface35
+    100046: polySurface36
+    100048: polySurface37
+    100050: polySurface38
+    100052: polySurface39
+    100054: polySurface40
+    100056: polySurface41
+    100058: polySurface42
+    100060: polySurface43
+    100062: polySurface44
+    100064: polySurface45
+    100066: polySurface46
+    100068: polySurface46 1
+    100070: polySurface47
+    100072: polySurface48
+    100074: polySurface49
+    100076: polySurface50
+    100078: polySurface51
+    100080: polySurface52
+    100082: pPyramid1
+    100084: pPyramid2
+    100086: pPyramid3
+    100088: pPyramid4
+    100090: pPyramid5
+    100092: transform1
+    100094: transform10
+    100096: transform11
+    100098: transform12
+    100100: transform13
+    100102: transform14
+    100104: transform15
+    100106: transform16
+    100108: transform17
+    100110: transform18
+    100112: transform19
+    100114: transform2
+    100116: transform20
+    100118: transform21
+    100120: transform22
+    100122: transform23
+    100124: transform24
+    100126: transform25
+    100128: transform26
+    100130: transform27
+    100132: transform28
+    100134: transform29
+    100136: transform30
+    100138: transform31
+    100140: transform32
+    100142: transform33
+    100144: transform34
+    100146: transform35
+    100148: transform36
+    100150: transform37
+    100152: transform38
+    100154: transform39
+    100156: transform40
+    100158: transform41
+    100160: transform42
+    100162: transform43
+    100164: transform44
+    100166: transform45
+    100168: transform46
+    100170: transform47
+    100172: transform7
+    100174: transform8
+    100176: transform9
+    400000: //RootNode
+    400002: cave_boi_back_cloth_RetopoGroup3
+    400004: hair
+    400006: polySurface1
+    400008: polySurface18
+    400010: polySurface19
+    400012: polySurface2
+    400014: polySurface20
+    400016: polySurface21
+    400018: polySurface22
+    400020: polySurface23
+    400022: polySurface24
+    400024: polySurface25
+    400026: polySurface26
+    400028: polySurface27
+    400030: polySurface28
+    400032: polySurface29
+    400034: polySurface30
+    400036: polySurface31
+    400038: polySurface32
+    400040: polySurface33
+    400042: polySurface34
+    400044: polySurface35
+    400046: polySurface36
+    400048: polySurface37
+    400050: polySurface38
+    400052: polySurface39
+    400054: polySurface40
+    400056: polySurface41
+    400058: polySurface42
+    400060: polySurface43
+    400062: polySurface44
+    400064: polySurface45
+    400066: polySurface46
+    400068: polySurface46 1
+    400070: polySurface47
+    400072: polySurface48
+    400074: polySurface49
+    400076: polySurface50
+    400078: polySurface51
+    400080: polySurface52
+    400082: pPyramid1
+    400084: pPyramid2
+    400086: pPyramid3
+    400088: pPyramid4
+    400090: pPyramid5
+    400092: transform1
+    400094: transform10
+    400096: transform11
+    400098: transform12
+    400100: transform13
+    400102: transform14
+    400104: transform15
+    400106: transform16
+    400108: transform17
+    400110: transform18
+    400112: transform19
+    400114: transform2
+    400116: transform20
+    400118: transform21
+    400120: transform22
+    400122: transform23
+    400124: transform24
+    400126: transform25
+    400128: transform26
+    400130: transform27
+    400132: transform28
+    400134: transform29
+    400136: transform30
+    400138: transform31
+    400140: transform32
+    400142: transform33
+    400144: transform34
+    400146: transform35
+    400148: transform36
+    400150: transform37
+    400152: transform38
+    400154: transform39
+    400156: transform40
+    400158: transform41
+    400160: transform42
+    400162: transform43
+    400164: transform44
+    400166: transform45
+    400168: transform46
+    400170: transform47
+    400172: transform7
+    400174: transform8
+    400176: transform9
+    2100000: blinn1
+    2100002: lambert1
+    2300000: polySurface46
+    3300000: polySurface46
+    4300000: polySurface46
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
