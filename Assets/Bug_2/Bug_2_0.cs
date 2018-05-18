@@ -56,7 +56,7 @@ public class Bug_2_0 : MonoBehaviour
     void Update()
     {
 
-        Debug.DrawLine(eyes.position, Player.transform.position,Color.blue); 
+        //Debug.DrawLine(eyes.position, Player.transform.position,Color.blue); 
         // CHECKS IF ITS ALVE  
         if (Alive)
         {
@@ -173,7 +173,7 @@ public class Bug_2_0 : MonoBehaviour
             RaycastHit rayHit;
             if (Physics.Linecast(eyes.position, Target.position, out rayHit))
             {
-                print("hit" + rayHit.collider.gameObject.name);
+                //print("hit" + rayHit.collider.gameObject.name);
                 if (rayHit.collider.gameObject.name == TargetName)
                 {
                     if (state != "Kill")

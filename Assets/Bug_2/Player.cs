@@ -10,14 +10,14 @@ public class Player : MonoBehaviour {
     {
         if (col.gameObject.name == "eyes")
         {
-            Debug.Log("YouGotME");
+            //Debug.Log("YouGotME");
             col.transform.parent.GetComponent<Bug_2_0>().eyeballCheck();
         }
-        else if (col.CompareTag("lostPage"))
-        {
-            Destroy(col.gameObject);
-            //gameplayCanvas.instance.findPage();
-        }
+        //else if (col.CompareTag("lostPage"))
+        //{
+        //    Destroy(col.gameObject);
+        //    //gameplayCanvas.instance.findPage();
+        //}
     }
 
     

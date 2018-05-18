@@ -41,7 +41,7 @@ public class DamageTheBoi : MonoBehaviour {
     {
         if (col.gameObject.layer == 10)
         {
-            Debug.Log("entertrigger");
+            //Debug.Log("entertrigger");
 
             Damage = true;
 
@@ -51,7 +51,7 @@ public class DamageTheBoi : MonoBehaviour {
 
     void OnTriggerStay(Collider col)
     {
-        Debug.Log("time" + time);
+        //Debug.Log("time" + time);
         time += Time.deltaTime;
 
         if (time >= TBAttacks  && col.gameObject.layer == 10)
