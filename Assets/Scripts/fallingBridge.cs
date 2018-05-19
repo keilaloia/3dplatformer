@@ -39,7 +39,7 @@ public class fallingBridge : MonoBehaviour {
             //currentParent.transform.localRotation = Quaternion.Euler(-90, 0, 0);
 
             isfalling = false;
-            Debug.Log("isfallingisfalse");
+            //Debug.Log("isfallingisfalse");
         }
     }
     // Update is called once per frame
@@ -60,18 +60,18 @@ public class fallingBridge : MonoBehaviour {
             }
         }
 
-        Debug.Log(Timer);
+        //Debug.Log(Timer);
 
     }
 
     private void OnTriggerEnter(Collider other)
 	{
-        Debug.Log("entertriggered");
+       // Debug.Log("entertriggered");
 		if(other.gameObject.layer == 13 && movesingleton.IsAttacking)
 		{
             thismesh.enabled = false;
             isfalling = true;
-            Debug.Log("worked");
+           // Debug.Log("worked");
             
 		}
 
@@ -79,11 +79,11 @@ public class fallingBridge : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("exit triggered");
+       // Debug.Log("exit triggered");
     }
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("triggerstay");
+        //Debug.Log("triggerstay");
     }
 }

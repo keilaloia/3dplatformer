@@ -43,7 +43,7 @@ public class WayPoints : MonoBehaviour {
             if (index >= wayPoint.Length)
             {
                 Instantiate(NewCart, SpawnPoints.position, SpawnPoints.rotation);
-                Debug.Log("got one");
+                //Debug.Log("got one");
                 Destroy(gameObject);
                 
             }
