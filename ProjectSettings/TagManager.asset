@@ -8,6 +8,7 @@ TagManager:
   - bomb
   - BombSpawn
   - check
+  - Enemy
   layers:
   - Default
   - TransparentFX

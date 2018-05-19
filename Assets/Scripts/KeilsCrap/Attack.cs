@@ -4,31 +4,19 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour {
 
-    public Camera rumble;
+    public GameObject DeaDBug;
 
-    private Movement movesingleton;
-    private bool triggered;
-    
-    // Use this for initialization
-    void Start () {
-        movesingleton = Movement.instance.GetComponent<Movement>();
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-       
-
-    }
-
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider col)
     {
-        if (other.gameObject.layer == 12 && Input.GetButton("ControllerAttack"))
-        {
-            triggered = true;
 
-            Debug.Log("hit");
+        if (col.gameObject.tag == "Enemy")
+        {
+
+            Instantiate(DeaDBug, transform.position, transform.rotation);
+            Destroy(col.gameObject);
+
         }
-       
-    }
+
+    }   
+    
 }
